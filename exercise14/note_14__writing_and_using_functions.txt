@@ -1,0 +1,23 @@
+2019-11-24 10:59:13
+
+This folder did the following excercises
+
+Writing And Using Functions
+excecise 14	- 
+            -  function structure and usage
+				- declarations
+					<return-type> <function-name> (parameter-list);
+				- definitions
+					<return-type> <function-name> (parameter-list)
+					{
+						function-body
+					}
+			- Use ANSI instead of K&R function declaration
+			- K&R is very old and is defined as seen in the following example:
+				int foo(a, b)
+					int		a;
+					char	*p;
+				{
+					return 0;
+				}
+            - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 5 for more info

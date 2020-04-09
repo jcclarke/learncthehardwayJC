@@ -1,0 +1,82 @@
+2019-11-25 14:50:53
+
+This folder did the following excercises
+
+Structs And Pointers To Them
+excecise 16	- A structure is a programmer-defined data types made up of variables of other datatypes (and sometimes other structures)
+		----------------------------------------------------------------------------------------------------------------------------------------
+			- struct  "declaration" is as follows
+				   ----------------------------------------------------
+				  struct <struct_name> 
+				  {
+					
+					<data-type1>  <variable_member_name1>;
+					<data-type2>  <variable_member_name2>,  <variable_member_name2>, ...;
+					...;
+					<data-type_n>  <variable_member_name_n>;
+				  } <struct_variable_1>, <struct_variable_1>;
+
+		----------------------------------------------------------------------------------------------------------------------------------------
+			- A struct variable can be "declared" in 2 ways:
+					----------------------------------------------
+				- 1) at the struct definition between the '}' and ';'
+					eg
+						see line 17 above 
+					----------------------------------------------
+				- 2) After the struct definition
+					eg
+						struct <struct_name> <struct_variable>, <struct variable>;
+		----------------------------------------------------------------------------------------------------------------------------------------
+			- A struct variable members can be "initialized" in 3 ways:
+					----------------------------------------------------------------------------------------------------------------
+				- 1) specify the values in a set of braces and separated by commas
+					eg
+						struct <struct_name> struct_variable = { value, value, ... };
+					---------------------------------------------------------------------------------------------------------------
+				- 2) specify the name of the member to initilaize using a 'PERIOD' in a set of braces and separated by commas
+					eg
+						struct <struct_name> struct_variable = { .variable_member_name1 = value, .variable_member_name2 = value, ... };
+					---------------------------------------------------------------------------------------------------------------
+				- 3) specify the name of the member to initilaize using a 'COLON' in a set of braces and separated by commas
+					eg
+						struct <struct_name> struct_variable = { variable_member_name1: value, variable_member_name2: value, ... };
+		----------------------------------------------------------------------------------------------------------------------------------------
+			- A struct variable mambers can be "accessed" in 2 ways:
+				- 1) specify the name of the member to initialize using a "PERIOD" 
+					eg
+						struct <struct_name> struct_variable;
+						struct_variable . variable_member_name1		= value1;
+						struct_variable . variable_member_name2		= value2;
+						...
+					-----------------------------------------------------------------------------------------------------------------------
+				- 2) when using a pointer, specify the name of the member to initialize using a "DASH and GREATER THAN" to create an arrow 
+					eg
+						struct struct_name struct_variable			= { value1, value2 };
+						struct struct_name *struct_ptr				= &struct_variable;
+						struct_variable -> variable_member_name1	= value1;
+						struct_variable -> variable_member_name2	= value2;
+						...
+		----------------------------------------------------------------------------------------------------------------------------------------
+			- The size of a struct is the sum of its members.
+			- The size may include padding to speed up memory access depending on the computer platform
+			- struct members are also known as fields
+			- struct are compound data types
+			- you can point to an uninitialised struct by pointing to a memory location allocated to a struct using "malloc" and "sizeof".
+					eg	struct struct_name *struct_ptr				= malloc(sizeof(struct struct_name));
+			
+			- a function can return a pointer to a struct												//see example18/note.txt for more info
+					eg. <return-type>			* <function-name> (parameter-list) 
+						struct *struct_name		* function_name	(int param, char 'p'){ ... }		
+
+		--------------------------------------------------------------------------------------------------------------------------------------
+			
+			POINTER LEXICON
+				struct type var			"a variable of struct type named var"
+				struct type *ptr		"a pointer of struct type named ptr"
+				&var					"the address of the struct var"
+				*ptr = &var				'a pointer of struct type named ptr set to address var"
+				var.member				"the value of whatever the struct var member is"
+				*ptr -> member			"the value of whatever struct pointer member is pointed at"
+
+		--------------------------------------------------------------------------------------------------------------------------------------
+            - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 2.4 for more info  (2.4.4 for but fields)

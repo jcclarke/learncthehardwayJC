@@ -1,0 +1,28 @@
+2019-11-29 16:01:31
+
+This folder did the following excercises
+
+Zed's Awesome Debug Macros
+excecise 20	- In this program we created a useful debug header file with macros then tested them
+				- new header file macro operators
+					- ## -- concatenation (cpp reference guide section 3.5) 
+						eg 	#define __(st) st ## _helps
+						__(this)			==     this_helps
+					- __FILE__ pre-defined file name macro  (cpp reference guide section 3.7.1) 
+						stores the expanded name of the current input file
+						eg. "/usr/local/include/hello.h
+					- __LINE__ pre-defined line number macro (cpp reference guide section 3.7.1)  
+						stores the current line number of the current input file 
+					- Variadic Macros  (cpp reference guide section 3.6) 
+						-eg.
+							#define eprint(...) fprintf (strerr,__VA_ARGS__)
+							eprint("%s %d\n", name, age)	-->		fprintf(strerr, "%s %d\n", name, age)
+						- __VA_ARGS__ 
+							variable arguments identifier
+						- ...
+							whatever arguments
+				- new code file functions
+					- error
+						a general error reporting function
+						
+             see gcc.gnu.org/onlinedocs/cpp/index.html#SEC_Contents sections 2.4, 3.5, 3.7.1  for more info  

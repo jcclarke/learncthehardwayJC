@@ -1,0 +1,8 @@
+2024-10-11 03:10:54
+
+This folder did the following excercises
+
+More Variable, Some Math
+excecise 3 	- Using variables in code
+			- code explanation
+			- char = '\0' in printf as %c prints nothing and as %s is "(null)" . weird

@@ -1,0 +1,100 @@
+2019-12-21 22:32:31
+
+This file explains the meanings of functions and variables in the 
+other libraries used in the project. 
+
+library functions and variables documentation retrieved from 
+various sources listed undeneath the header file
+
+excecise 26
+
+
+	
+	location of header files where functions and varibles found 
+	/usr/include/asm/
+
+
+			- unistd.h
+			  documentation found at:
+			  http://www.opengroup.org/onlinepubs/9699919799/basedefs/unistd.h.html
+
+				- access
+					Determine the accessibility of a file descriptor.
+					Check the file named by the pathname pointed to by the path
+					argument for accessiblity according to the bit pattern contained
+					in amode.
+
+						int access (const char * path, int amode);
+
+				- R_OK
+					Test for read permission.
+
+				- W_OK
+					Test for write permission.
+
+				- X_OK 
+					Test for execute (search) permission.
+
+
+			- .h
+
+				- 
+					
+
+						
+
+				- 
+					
+
+						
+
+
+			- .h
+
+				- 
+					
+
+						
+
+
+				- 
+					
+
+						
+
+				 
+					
+
+
+	location of header files where functions and varibles found
+	/usr/lib/gcc/x86_64-linux-gnu/5/include/
+
+
+			- stdarg.h
+			  documentation found at:
+			  http://www.tutorialspoint.com/c_standard_library/stdarg_h.htm
+			  see also:		man 7 stdarg.h
+				
+				- va_list
+					This is the type suitable for holding information needed by the 
+					three macros va_start(), va_arg(), va_end()..
+						
+				- va_start 
+					This macro uses the 'va_list ap' variable to be used with the 
+					va_arg and va_end macros.
+
+				- va_arg
+					This macro retrieves the next argument in the parameter list
+					of the function.
+
+				- va_end
+					This macro allows a function with variable arguments which used
+					va_start macro to return.
+
+						
+
+				- 
+					
+
+						
+

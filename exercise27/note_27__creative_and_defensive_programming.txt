@@ -1,0 +1,149 @@
+2020-01-09 08:39:55
+
+This folder did the following excercises
+
+Creative and Defensive Programming
+excecise 27	- In this program and exercise we explore what Creative and Defensive Programming is and when to use each.
+				- Creative Programming mindset
+					- The creative programmer mindset is used to come up with creative ideas and solutions to solve software problems
+						by opening your mind to thoughts and odd connections, and weirdness without fear of whatever. The are also some 
+						drawbacks of this mindset which is why one should only use it until the the prototye is done. 
+
+						- Assume the following to get into the creative mindset:
+							- I can't make a mistake
+							- it doesn't matter what others think
+							- Whatever my brain comes up with is going to be a great idea
+						- The destructive side of this mindset:
+							- It is possible to write perfect code
+							- My brain tells me the truth, and it can't find any errors, therfore I have written perfect software
+							- My code is who I am and anyone criticizes its perfection is criticizing me
+					
+				- Defensive Programming mindset
+					- The defensive mindset lets you be honest about your work and critically analysze if for improvements. This allows 
+						you to solid code.  There is a dark side to this mindset which is why one should only use it after completing 
+						the prototype. 
+ 
+						- Assume the following to get into the defensive mindset:
+							- Software has errors
+							- You are not your software, yet you are responsible for it
+							- You can never remove the errors, only reduce their probability
+						- The destructive side of this mindset:
+							- paranoid and afraid of everything
+							- Fear prevents one from being wrong making mistakes
+							- Destroys creativity and concentration
+					 
+					 
+				- The 8 Defensive programming strategies
+					- NEVER TRUST INPUT:
+						Never trust the data you are given and always validate it.			(More Below)
+					- PREVENT ERRORS: 
+						If an error is possible, no matter how probable, try to prevent it. (More Below)
+					- FAIL EARLY AND OPENLY:
+						Fail, early, cleanly, and openly, stating what happened, and where and how to fix it.
+																							(More Below)
+					- DOCUMENT ASSUMPTIONS: 
+						Clearly state the pre-conditions, post-conditions, and invariants.  (pgs 143-144)
+					- PREVENT OVER DOCUMENTATION:
+						Do not do with documentation, that which can be done with code or avoided completely.
+																							(pg 144)
+					- AUTOMATE EVERYTHING:
+						Automate everthing, especially testing.								(More Below)
+					- SIMPLIFY AND CLARIFY:
+						Always simplify code to the smallest, cleanest form that workswithout sacrificing safety.
+																							(More Below)
+					- QUESTION AUTHORITY:
+						Do not blindly follow or reject rules.								(pg 145)
+
+
+				- NEVER TRUST INPUT:
+					- Things todo whenever writing functions in C
+						- For each parameter identify what its preconditions are, and whether the precondition should cause a 
+						  failure or returm am error. If you are writing a library, favor errors over failures.
+						- Add assert calls at the beginning that checks for each failure precondition using
+							[ assert(test && "message") ]
+						  This little hack does the test, and when it fails the OS will typically print the assert line for 
+						  you, which then includes that message. Very helpfulwhen you're trying to figure out why that
+						  assert is there
+						- For the other preconditions, return the error code or use my  [ check ] macro to do that and give
+						  an error message. I didn't use [ check ] in this example since it would confuse the comparison.
+						- Document why these preconditions exist so that when a programmer comes across the hits the error 
+						  they can figure out if they are really necessary or not.
+						- If you are modifying the inputs, make sure that they are correctly formed wehn the function exits,
+						  or abort if they aren't.
+						- Always check the error codes of the functions you use. For example, people frequently forget to 
+						  check the return codes for [ fopen ] or [ fread ] which causes them to use the resources they 
+						  give despite the error. This causes your program to crash or gives an avenue for an attack.
+						- You also need to bbe returning consistent error codes so that you can do this for all of 
+						  your functions too. Once you get in this habit you will then understand why my check macros 
+						  work the way they do.
+
+				- PREVENT ERRORS
+					- Process to determine what to prevent in your software.
+						- List all the possible errors that can happen, no matter how probable. Within reason of course.
+						  No point listing aliens sucking your memories out to steal your passwords.
+						- Give each one a probability that's a percentage of operations that can be vulnerable. If you are
+						  If you are handling requests from the internet, then it's the percentage of requests that can cause 
+						  the error. If it's function calls, then it's what percentage of function calls can cause it.
+						- Give each one an effort value in number of hours, or amount of code to prevent it. You can also 
+						  just give an easy or hard metric. Any metric that prevents you from working on the impossible when 
+						  there's easier things to fix still on the list.
+						- Rank them by effort(lowest to highest), and probability(highest to lowest). This is now the task list
+						- Prevent all the errors you can in this list, aiming for removing the possibility, then reducing 
+						  the probability if you can't make it impossible.
+						- If there are errors you can't fix, then document them so someone else can fix it!
+						  
+				- FAIL EARLY AND OPENLY
+					- When you encounter an error in C, there sre two choices
+						- Abort the process.
+							Should be done mainly when a catastrophic error occurs due to bad library or function usage.
+							(eg. receiving an invalid pointer the may result in a segmentation fault)
+						- Return an abort code.
+							Most other errors that may not be catastrophic. (eg. having a NULL pointer.)
+						- Don't use the same message or error code for more than one error type.
+							The type of error should be explicitly so that the program can be debugged properly and fixed
+						  
+				- DOCUMENT ASSUMPTIONS
+					- "Invariants" and "Postconditions" should be included to document assumptions
+						- An "invariant" is a condition that must hold true in a particular state while the function runs.
+						    Uncommon in simple functions, but is more necessary the more complex the function structure.
+						- A "postcondition" is a guaranteed exit value/s or result of a function running.
+						    Postconditions are used to ensure that the results were calculated and analyzed correctly
+							otherwise and error code would be returned.
+						- The [assert()] call can be used for communicating some assumptions with the rest documented
+
+				- PREVENTION OVER DOCUMENTATION
+					- Don't document common known bugs, it is better to just fix them.
+						- Documentation doesn't matter if you can actually fix the problem.
+						- If the problem is a fatal flaw, it is better to remove the function from the program until it's fixed.
+						  
+				- AUTOMATE EVERYTHING
+					- If you are spending the day rerunning manual tests, then you are doing QA instead of programming
+						- Common things tha should be automated by programmers:
+							o- Testing and Validation
+							o- Build Processes
+							o- Depoyment of Software
+							o- System Administration
+							o- Error Reporting
+						  
+				- SIMPLIFY AND CLARIFY
+					- The test of simplicity is by comparison with something else that COULD be simplier.
+						- Don't confuse "comprehension" with "simplicity" (ie. 'if you understand it well, it's simple')! 
+							Be careful of this trap.
+						- Avoid the love affair of complexity in programming.
+						- Simple test of which function to use:
+							o- Make sure both functions have no errors. Functions with errors are irrelevant.
+							o- If you cant fix one, then pick the other.
+							o- They don't produce the same result? Pick the one that does.
+							o- The result produced is the same? Choose the one with fewer feature, fewer branches, 
+								or is thought simpler.
+							o- Ensure you're not picking the ne that's most impressive. Simple and dirty over complex and clean.
+							
+				- QUESTION AUTHORITY
+					- The rules used in Defensive Programming mindset is good for getting things done, but can be very restictive to
+						creativity and wrong in some instances.
+					-  Sometimes these mindset rules need to be questioned, and break taken to prevent from falling into the dark 
+						side of Defensive Programming and becoming negative.
+
+
+		Final General Rule
+		CREATE! DEFEND! CREATE! DEFEND! CREATE! DEFEND! CREATE! DEFEND! 

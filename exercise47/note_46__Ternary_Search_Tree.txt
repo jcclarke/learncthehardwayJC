@@ -1,0 +1,89 @@
+2020-03-02 19:58:33
+
+This folder did the following excercises
+
+Automated Testing
+excecise 35	- In this program we explored sorting Dynamic Arrays
+				
+				- Fixed all error messages.
+				- Had to change the 0 to a 1 on the read_some function call on line 144
+				- During testing, it works on files smaller than (1024 * 10).
+				- Did the following successful test to check results
+					./bin/netclient.exe 25.io 80
+					GET /toau/audio/sample.txt HTTP/1.1
+					Host: 25.io
+
+
+
+				- Makefile Update
+					
+					added -lm to link the math.h library when compiling the src and tests .c files
+
+
+					The fix was found googling "linking to bsd/stdlib.h"
+					- CFLAGS
+						$(shell pkg-config --cflags libbsd) was included after -Isrc and before -rdynamic.
+					- LDLIBS
+						$(shell pkg-config --libs libbsd) was included before -ldl.
+
+					- shell
+						Execute a shell command and return its output. 
+						section 8.13 in the make manual
+						Found in gnu.org/software/make/manual/make.html#Shell-Function
+
+					- pkg-config
+						Provides the necessary details for compiling and linking a program to a library.
+						--cflags
+							Prints pre-processor and compile flags required to compile the packages 
+							on the command line.
+						--libs
+							This option is identical to "--cflags", only it prints the link flags.
+						Found in the following areas:
+							- man pkg-config
+							- people.freedesktop.org/~dbn/pkg-config-guide.html
+					
+				- libbsd-dev
+					mergesort and heapsort (and other sort algorithms) are in bsd stdlib but not
+					in ubuntu standard c libraries. So the bsd libraries needed to be installed 
+					to include the necessary stdlib sort functions.
+					- install instructions
+						sudo apt-get update -y
+						sudo apt-get install -y libbsd-dev
+					- install locations
+						see: https://packages.ubuntu.com/xenial/amd64/libbsd-dev/filelist
+
+					
+more notes to be done and below removed
+				- NOTE:
+					The structure of a linked list is not designed/optimized for sorting, since they are 
+					horrible (very slow) for sorting. The reason for this execise is to provoke thought 
+					on how to manipulate the linked list efficiently by trying to slightly difficult to
+					implement these sorting algorithms
+
+
+				- minunit.h
+					- We build upon this framework to build a custom unit testing framework
+						MinUnit -- A minimal unit testing framework for C.
+						Has 3 lines of code.
+						Found at jera.com/techinfo/jtns/jtn002.html
+					- Using dbg.h, stdio.h, and stdlib.h we create the desired framework.
+						A "RUN_TESTS(name)" function is added to run all the tests.
+						It includes an "int main" so that the tests can be run automatically.
+	
+				
+				- libex30_tests.c
+					- all test functions are structured so no arguments are taken and a char *
+					  of NULL is returned on 'success'. The macros in minunit.h will return an
+					  error message to the test runner
+					- check_function()
+						- looks for the function in the library, errors out if its not found.
+						- runs the function and compares the return status to the output.
+					- all_tests()
+						- The test runner function that controls all the other tests.
+						- mu_suite_start()
+							Test config setup for common stuff before tests are run.
+						- mu_run_test()
+							Used to run tests on a function.
+						- Returns NULL upon 'success'.
+					- RUN_TESTS(all_tests)
+						- Wrap a main funtion around the runner.

@@ -1,0 +1,35 @@
+2020-01-07 00:26:28
+
+This is the file README for the devpkg program
+
+Devpkg is a c program that installs other software. 
+It is designed to grab code from the internet and 
+configure ; make ;  make install the program.
+it uses the following commands:
+
+	devpkg -S
+			Setup a new install on a computer.
+			
+			devpkg -S 
+
+	devpkg -I
+			Install a piece of software from a URL
+
+			devpkg -I <URL> [-c <configure options> -m <make options> -i <install options>]
+
+	devpkg -L
+			List all the software previously installed
+			
+			devpkg -L 
+
+	devpkg -F
+			Fetch source code for manual building
+
+			devpkg -F <URL> [-c <configure options> -m <make options> -i <install options>]
+
+	devpkg -B
+			Builds fetched source code and installs it,
+			even if it's already installed.
+
+			devpkg -B <URL> [-c <configure options> -m <make options> -i <install options>]
+

@@ -1,0 +1,11 @@
+2019-11-21 10:18:52
+
+This folder did the following excercises
+
+
+Dust off That Compiler
+excecise 1 	- hello worlds
+			- compile using CFLAGS and other cmdline calls
+
+Make Is Your Python Now
+excecise 2	- creating first make file

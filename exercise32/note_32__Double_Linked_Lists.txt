@@ -1,0 +1,78 @@
+2020-02-14 09:52:57
+
+This folder did the following excercises
+
+Double Linked Lists
+excecise 32	- In this program we create a Library of funtions for a double linked list
+
+				- Double vs single Linked lists
+					- single
+						- pros
+							- simple implementation
+							- less memory required
+							- insertion and deletion fast if done at the next node
+						- cons
+							- difficult to iterate in reverse
+							- need to maintain a handle at the head node or the list is lost in memory
+							- to delete or insert at the previous node, the whole list must be traversed
+						- application
+							insertion and deletion in tight memory requirements, but not searching
+					- double
+						- pros
+							- both forward and reverse iteration done simply
+							- deletion of insertion at the previous node can be done quickly
+						- cons
+							- more complicated implimention
+							- more memory required
+							- insertion and deletions slower since twice as many pointers must be changed
+						- application
+							- searching for elements where the memory requirements are not tight
+					
+				- Double linked list limitiations
+					- slow at iterating through the list
+					- uses more memory for the list
+
+				- Makefile changes
+					- moved directry variables to the top
+					- removed the "OBJ_DIR" variable everywhere since it wasn't being used
+					- added the "SUB_SRC_DIR_1" directory variable
+					- made a new "INCLUDES" variable which holds the "SRC_DIR" and "SUB_SRC_DIR_1" directories
+					- added the "INCLUDES" variable to "CFLAGS" just before "OPTLIBS"
+					- changed the "TARGET" and "SO_TARGET" variables to "SLIB_TARGET" and "DLIB_TARGET"
+					- changed the *tests.c files compilations to have a .tst extension.
+					- moved the $(SLIB_TARGET) from the end to before -o when compiling tests
+					- took out the OSX cleanup lines of code in the "clean:" target.
+
+				- runtests.sh changes	
+					- changes the compiled *tests files to have a .tst extension instead
+					
+				- list.h
+					- Holds the structs for the List and the Nodes
+					- defines List_count --	return the number of elements in the list
+					- defines List_first --	return the first element
+					- defines List_last --	return the last element 
+					- declares all other functions
+					- Has a 'for loop' macro to simplify looping through the linked list
+
+				- list.c
+					- (original was modified to not have lcthw/ in the library includes calls)
+					- List_create --		creates the List struct
+					- List_destroy --		destroys the list and all its elements
+					- List_clear --			free the values in each node, not the nodes themselves
+					- List_clear_destroy --	clear and destroy the list 
+												(the original code was modified to loop once)
+					- List_push --			add element to the end of the list
+					- List_pop --			remove the element at the end of the list
+					- List_unshift --		add element to the beginning of the list
+					- List_shift--			remove the element at the beginning of the list
+					- List_remove --		removes an element at the beginning, middle or end of the list
+					NEW FUNCTIONS ADDED for Extra Credit
+					- List_copy --			copies a list and returns the copy
+					- List_join --			copies list1 and appends it to list
+					- List_split --			Given a node int the list spilts the list into 2 listsbefoe the node
+					- List_print --			prints the doubly linked list out
+
+				- list_tests.c
+					- (original was modified to not have lcthw/ in the library includes calls)
+					- same functionality as libex30_tests.c in exercise 30 notes
+					- has all the tests for the functions

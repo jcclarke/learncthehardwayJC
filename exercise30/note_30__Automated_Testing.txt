@@ -1,0 +1,33 @@
+2020-01-21 10:07:36
+
+This folder did the following excercises
+
+Automated Testing
+excecise 30	- In this program we create a small testing "framework" within the skeleton directory
+
+				- minunit.h
+					- We build upon this framework to build a custom unit testing framework
+						MinUnit -- A minimal unit testing framework for C.
+						Has 3 lines of code.
+						Found at jera.com/techinfo/jtns/jtn002.html
+					- Using dbg.h, stdio.h, and stdlib.h we create the desired framework.
+						A "RUN_TESTS(name)" function is added to run all the tests.
+						It includes an "int main" so that the tests can be run automatically.
+	
+				
+				- libex30_tests.c
+					- all test functions are structured so no arguments are taken and a char *
+					  of NULL is returned on 'success'. The macros in minunit.h will return an
+					  error message to the test runner
+					- check_function()
+						- looks for the function in the library, errors out if its not found.
+						- runs the function and compares the return status to the output.
+					- all_tests()
+						- The test runner function that controls all the other tests.
+						- mu_suite_start()
+							Test config setup for common stuff before tests are run.
+						- mu_run_test()
+							Used to run tests on a function.
+						- Returns NULL upon 'success'.
+					- RUN_TESTS(all_tests)
+						- Wrap a main funtion around the runner.

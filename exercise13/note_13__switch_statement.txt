@@ -1,0 +1,22 @@
+2019-11-22 14:12:38
+
+This folder did the following excercises
+
+Switch Statement
+excecise 13	- 
+            - switch statement structure and usage
+                 - switch (<test>)	{
+					   case compare-1:
+					       if-equal-statement-1
+					   case compare-1:
+					       if-equal-statement-2
+					   ...
+					   default:
+						   default-statement
+				   }
+            - You should always put a default statement at the end of your sitch statement to catch any missing inputs.
+            - You should always put a break within each case of your switch statement to exit it.
+			- breaks make the switch statement act like an if statement.
+			- cases without a break statement will "feedthrough" and execute  code within subsequent cases until a "break" or "default" at the end of the switch.
+			- cases without a break is useful sometimes (eg see ex13.c), make sure to comment that it is intentional and why!
+            - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 4.3 for more info

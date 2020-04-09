@@ -1,0 +1,738 @@
+DEBUG tests/bstree_tests.c:183: ----- RUNNING: ./tests/bstree_tests.tst
+DEBUG tests/bstree_tests.c:171: 
+----- test_create
+DEBUG tests/bstree_tests.c:172: 
+----- test_get_set
+DEBUG tests/bstree_tests.c:173: 
+----- test_traverse
+DEBUG tests/bstree_tests.c:23: KEY: test data 3
+DEBUG tests/bstree_tests.c:23: KEY: test data 2
+DEBUG tests/bstree_tests.c:23: KEY: test data 1
+DEBUG tests/bstree_tests.c:31: KEY: test data 3
+DEBUG tests/bstree_tests.c:31: KEY: test data 2
+DEBUG tests/bstree_tests.c:174: 
+----- test_delete
+DEBUG tests/bstree_tests.c:175: 
+----- test_destroy
+DEBUG tests/bstree_tests.c:176: 
+----- test_fuzzing
+DEBUG tests/bstring_tests.c:115: ----- RUNNING: ./tests/bstring_tests.tst
+DEBUG tests/bstring_tests.c:101: 
+----- test_create
+DEBUG tests/bstring_tests.c:102: 
+----- test_contents
+DEBUG tests/bstring_tests.c:108: 
+----- test_destroy
+DEBUG tests/darray_algos_tests.c:138: ----- RUNNING: ./tests/darray_algos_tests.tst
+DEBUG tests/darray_algos_tests.c:124: 
+----- test_quicksort
+DEBUG tests/darray_algos_tests.c:47: --- Testing quicksort sorting algorithm
+DEBUG tests/darray_algos_tests.c:125: 
+----- test_heapsort
+DEBUG tests/darray_algos_tests.c:47: --- Testing heapsort sorting algorithm
+DEBUG tests/darray_algos_tests.c:126: 
+----- test_mergesort
+DEBUG tests/darray_algos_tests.c:47: --- Testing mergesort sorting algorithm
+DEBUG tests/darray_algos_tests.c:129: 
+----- test_my_quicksort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_quicksort sorting algorithm
+DEBUG tests/darray_algos_tests.c:130: 
+----- test_my_heapsort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_heapsort sorting algorithm
+DEBUG tests/darray_algos_tests.c:131: 
+----- test_my_mergesort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_mergesort sorting algorithm
+DEBUG tests/darray_tests.c:147: ----- RUNNING: ./tests/darray_tests.tst
+DEBUG tests/darray_tests.c:133: 
+----- test_create
+DEBUG tests/darray_tests.c:134: 
+----- test_new
+DEBUG tests/darray_tests.c:135: 
+----- test_set
+DEBUG tests/darray_tests.c:136: 
+----- test_get
+DEBUG tests/darray_tests.c:137: 
+----- test_remove
+DEBUG tests/darray_tests.c:138: 
+----- test_expand_contract
+DEBUG tests/darray_tests.c:139: 
+----- test_push_pop
+DEBUG tests/darray_tests.c:140: 
+----- test_destroy
+DEBUG tests/hashmap_algos_tests.c:181: ----- RUNNING: ./tests/hashmap_algos_tests.tst
+DEBUG tests/hashmap_algos_tests.c:170: 
+----- test_fnv1a
+DEBUG tests/hashmap_algos_tests.c:171: 
+----- test_adler32
+DEBUG tests/hashmap_algos_tests.c:172: 
+----- test_djb
+DEBUG tests/hashmap_algos_tests.c:173: 
+----- test_jenkins
+DEBUG tests/hashmap_algos_tests.c:174: 
+----- test_distribution
+FNV	A32	DJB	JEN
+1020	1013	965	987
+1017	1002	1002	1014
+996	1014	1013	1003
+975	1086	1004	990
+1069	991	1013	1011
+971	1005	951	1037
+983	1028	1011	1091
+1022	939	980	999
+998	969	924	1031
+988	1009	1024	1000
+978	1056	1007	963
+1003	921	1033	977
+979	976	981	1052
+1032	1027	1033	916
+968	1024	969	981
+991	998	1028	993
+1058	1013	966	1007
+992	986	980	1006
+1014	1030	1023	1050
+972	1007	993	978
+1075	952	1007	986
+989	970	1002	996
+971	944	1015	980
+985	993	988	953
+965	1010	1014	997
+976	932	1003	989
+951	1039	972	1018
+991	968	1002	941
+979	1025	1057	1009
+1037	1004	1000	987
+1008	992	1057	1003
+1036	991	1015	1000
+998	996	998	1012
+992	982	1026	1013
+1006	1011	1003	965
+988	1023	1036	979
+1032	1034	1072	1046
+977	956	1049	974
+1034	1002	956	1003
+947	1050	915	992
+993	1021	988	1000
+1022	1029	974	965
+1015	1003	956	994
+965	1010	1006	998
+1030	998	1065	1026
+994	998	1018	1026
+1025	1055	979	942
+970	1004	1021	952
+1001	986	967	930
+1022	1022	982	1015
+916	950	997	993
+1067	1013	969	990
+1035	1030	972	1031
+939	1062	996	973
+998	962	1074	954
+1001	1005	966	1018
+924	984	982	965
+1029	952	932	1050
+962	966	975	953
+982	970	1028	1036
+949	1014	1014	996
+1020	1023	987	985
+1020	982	933	960
+1057	992	980	1044
+1033	967	1078	1004
+964	1013	996	942
+974	990	994	977
+944	986	1013	1009
+986	963	986	1032
+1043	925	950	983
+968	991	969	989
+1007	969	999	977
+981	991	1027	1039
+1021	977	992	1018
+1023	1041	1059	1059
+1007	1016	985	1050
+978	1003	1022	1005
+1023	1010	959	1046
+1017	1009	1016	1035
+1001	1032	1022	979
+1006	987	969	1046
+971	1036	1035	1015
+1015	1018	1006	991
+1009	950	1034	1037
+1069	1005	986	1033
+1028	998	1016	1032
+980	1012	1064	976
+962	1032	974	1015
+1016	993	926	1012
+956	1013	1029	1002
+1010	1004	1027	981
+1068	998	999	1004
+1012	1024	974	990
+1004	999	1050	985
+1005	975	1005	971
+963	1028	999	945
+1048	1030	1022	1022
+968	1007	951	1024
+1012	1010	1028	998
+1029	999	991	1052
+DEBUG tests/hashmap_tests.c:133: ----- RUNNING: ./tests/hashmap_tests.tst
+DEBUG tests/hashmap_tests.c:122: 
+----- test_create
+DEBUG tests/hashmap_tests.c:123: 
+----- test_get_set
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG tests/hashmap_tests.c:124: 
+----- test_traverse
+DEBUG tests/hashmap_tests.c:20: KEY: test data 3
+DEBUG tests/hashmap_tests.c:20: KEY: test data 2
+DEBUG tests/hashmap_tests.c:20: KEY: test data 1
+DEBUG tests/hashmap_tests.c:28: KEY: test data 3
+DEBUG tests/hashmap_tests.c:28: KEY: test data 2
+DEBUG tests/hashmap_tests.c:125: 
+----- test_delete
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG tests/hashmap_tests.c:126: 
+----- test_destroy
+DEBUG tests/list_algos_tests.c:89: ----- RUNNING: ./tests/list_algos_tests.tst
+DEBUG tests/list_algos_tests.c:83: 
+----- test_bubble_sort
+DEBUG tests/list_algos_tests.c:84: 
+----- test_merge_sort
+DEBUG tests/list_tests.c:231: ----- RUNNING: ./tests/list_tests.tst
+DEBUG tests/list_tests.c:205: 
+----- test_create
+DEBUG tests/list_tests.c:206: 
+----- test_create1
+DEBUG tests/list_tests.c:207: 
+----- test_push
+DEBUG tests/list_tests.c:208: 
+----- test_copy
+DEBUG tests/list_tests.c:209: 
+----- test_destroy1
+DEBUG tests/list_tests.c:210: 
+----- test_create1
+DEBUG tests/list_tests.c:211: 
+----- test_unshift
+DEBUG tests/list_tests.c:213: 
+----- test_join
+DEBUG tests/list_tests.c:217: 
+----- test_remove_middle
+DEBUG tests/list_tests.c:218: 
+----- test_destroy1
+DEBUG tests/list_tests.c:219: 
+----- test_create1
+DEBUG tests/list_tests.c:220: 
+----- test_split
+DEBUG tests/list_tests.c:222: 
+----- test_pop
+DEBUG tests/list_tests.c:223: 
+----- test_shift
+DEBUG tests/list_tests.c:224: 
+----- test_destroy
+DEBUG tests/radixmap_tests.c:102: ----- RUNNING: ./tests/radixmap_tests.tst
+DEBUG tests/radixmap_tests.c:97: 
+----- test_operations
+DEBUG tests/string_algos_tests.c:138: ----- RUNNING: ./tests/string_algos_tests.tst
+DEBUG tests/string_algos_tests.c:125: 
+----- test_find_and_scan
+DEBUG tests/string_algos_tests.c:129: 
+----- test_scan_performance
+DEBUG tests/string_algos_tests.c:113: SCAN COUNT: 1572000, END TIME: 2, OPS: 786000.000000
+DEBUG tests/string_algos_tests.c:130: 
+----- test_find_performance
+DEBUG tests/string_algos_tests.c:83: FIND COUNT: 145000, END TIME: 2, OPS: 72500.000000
+DEBUG tests/string_algos_tests.c:131: 
+----- test_binstr_performance
+DEBUG tests/string_algos_tests.c:59: BINSTR COUNT: 1942000, END TIME: 2, OPS: 971000.000000
+DEBUG tests/bstree_tests.c:183: ----- RUNNING: ./tests/bstree_tests.tst
+DEBUG tests/bstree_tests.c:171: 
+----- test_create
+DEBUG tests/bstree_tests.c:172: 
+----- test_get_set
+DEBUG tests/bstree_tests.c:173: 
+----- test_traverse
+DEBUG tests/bstree_tests.c:23: KEY: test data 3
+DEBUG tests/bstree_tests.c:23: KEY: test data 2
+DEBUG tests/bstree_tests.c:23: KEY: test data 1
+DEBUG tests/bstree_tests.c:31: KEY: test data 3
+DEBUG tests/bstree_tests.c:31: KEY: test data 2
+DEBUG tests/bstree_tests.c:174: 
+----- test_delete
+DEBUG tests/bstree_tests.c:175: 
+----- test_destroy
+DEBUG tests/bstree_tests.c:176: 
+----- test_fuzzing
+DEBUG tests/bstring_tests.c:115: ----- RUNNING: ./tests/bstring_tests.tst
+DEBUG tests/bstring_tests.c:101: 
+----- test_create
+DEBUG tests/bstring_tests.c:102: 
+----- test_contents
+DEBUG tests/bstring_tests.c:108: 
+----- test_destroy
+DEBUG tests/darray_algos_tests.c:138: ----- RUNNING: ./tests/darray_algos_tests.tst
+DEBUG tests/darray_algos_tests.c:124: 
+----- test_quicksort
+DEBUG tests/darray_algos_tests.c:47: --- Testing quicksort sorting algorithm
+DEBUG tests/darray_algos_tests.c:125: 
+----- test_heapsort
+DEBUG tests/darray_algos_tests.c:47: --- Testing heapsort sorting algorithm
+DEBUG tests/darray_algos_tests.c:126: 
+----- test_mergesort
+DEBUG tests/darray_algos_tests.c:47: --- Testing mergesort sorting algorithm
+DEBUG tests/darray_algos_tests.c:129: 
+----- test_my_quicksort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_quicksort sorting algorithm
+DEBUG tests/darray_algos_tests.c:130: 
+----- test_my_heapsort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_heapsort sorting algorithm
+DEBUG tests/darray_algos_tests.c:131: 
+----- test_my_mergesort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_mergesort sorting algorithm
+DEBUG tests/darray_tests.c:147: ----- RUNNING: ./tests/darray_tests.tst
+DEBUG tests/darray_tests.c:133: 
+----- test_create
+DEBUG tests/darray_tests.c:134: 
+----- test_new
+DEBUG tests/darray_tests.c:135: 
+----- test_set
+DEBUG tests/darray_tests.c:136: 
+----- test_get
+DEBUG tests/darray_tests.c:137: 
+----- test_remove
+DEBUG tests/darray_tests.c:138: 
+----- test_expand_contract
+DEBUG tests/darray_tests.c:139: 
+----- test_push_pop
+DEBUG tests/darray_tests.c:140: 
+----- test_destroy
+DEBUG tests/hashmap_algos_tests.c:181: ----- RUNNING: ./tests/hashmap_algos_tests.tst
+DEBUG tests/hashmap_algos_tests.c:170: 
+----- test_fnv1a
+DEBUG tests/hashmap_algos_tests.c:171: 
+----- test_adler32
+DEBUG tests/hashmap_algos_tests.c:172: 
+----- test_djb
+DEBUG tests/hashmap_algos_tests.c:173: 
+----- test_jenkins
+DEBUG tests/hashmap_algos_tests.c:174: 
+----- test_distribution
+FNV	A32	DJB	JEN
+1006	996	960	1020
+1030	990	919	1001
+1021	1011	978	1040
+997	1021	996	1024
+959	1007	1067	936
+1053	1038	1010	1012
+964	983	970	998
+1021	1032	1001	1002
+985	994	982	995
+1014	936	987	1037
+1002	976	1025	975
+1019	956	962	1028
+990	955	1014	1025
+1042	1010	963	1011
+964	1045	981	991
+991	1060	1013	977
+1015	1001	978	992
+1004	1002	933	971
+1017	984	1004	985
+1004	1014	1066	978
+1049	952	1032	1065
+1034	1011	999	976
+1034	998	982	993
+962	1037	1048	987
+1008	1010	1013	1009
+1035	954	1011	993
+1003	1028	1030	1007
+1053	983	1032	1010
+987	1004	1026	919
+939	1007	1009	1011
+993	1029	1024	988
+1001	998	998	1009
+980	979	977	997
+974	961	991	1014
+999	989	943	981
+1034	966	985	1054
+937	1003	1001	989
+1020	991	967	970
+977	959	1017	1011
+962	972	1034	1009
+1010	996	926	940
+1005	949	1001	1015
+1014	973	1034	1003
+1010	1030	1030	1021
+1015	1029	988	1057
+993	1044	991	985
+1023	1001	979	956
+974	1029	994	1052
+952	1009	968	1043
+974	999	980	1085
+1066	1028	1008	952
+1028	1008	954	990
+988	981	989	993
+1004	1048	1046	986
+944	982	978	1033
+929	955	976	1010
+1007	990	983	1035
+963	1041	1038	1003
+986	1019	1032	995
+1059	1022	969	1037
+1032	990	981	1000
+913	972	992	1001
+1010	1017	989	979
+992	1011	994	1002
+1058	990	972	981
+1020	997	1013	984
+1051	995	1028	1020
+1006	1015	1000	1052
+954	1009	1020	984
+1035	958	1077	1053
+1015	977	1003	967
+937	962	1024	967
+1028	993	1014	1009
+1031	981	965	1014
+960	980	1040	970
+978	949	1014	997
+1009	1017	1000	975
+999	1011	931	978
+1046	1033	961	1010
+975	1054	1050	1013
+1047	1024	1079	990
+1028	985	1009	1003
+960	1026	1002	1014
+1000	1009	1016	1015
+1023	1030	1053	963
+974	986	957	1014
+966	985	988	1047
+1005	1003	982	973
+979	1021	976	967
+939	966	993	997
+1041	1020	1016	1006
+991	1042	989	962
+989	1001	995	995
+1031	984	996	988
+1005	993	1014	976
+1017	1007	1051	966
+986	1030	1017	983
+988	957	1000	1024
+1001	1013	1018	965
+958	1032	989	1015
+DEBUG tests/hashmap_tests.c:133: ----- RUNNING: ./tests/hashmap_tests.tst
+DEBUG tests/hashmap_tests.c:122: 
+----- test_create
+DEBUG tests/hashmap_tests.c:123: 
+----- test_get_set
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG tests/hashmap_tests.c:124: 
+----- test_traverse
+DEBUG tests/hashmap_tests.c:20: KEY: test data 3
+DEBUG tests/hashmap_tests.c:20: KEY: test data 2
+DEBUG tests/hashmap_tests.c:20: KEY: test data 1
+DEBUG tests/hashmap_tests.c:28: KEY: test data 3
+DEBUG tests/hashmap_tests.c:28: KEY: test data 2
+DEBUG tests/hashmap_tests.c:125: 
+----- test_delete
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG tests/hashmap_tests.c:126: 
+----- test_destroy
+DEBUG tests/list_algos_tests.c:89: ----- RUNNING: ./tests/list_algos_tests.tst
+DEBUG tests/list_algos_tests.c:83: 
+----- test_bubble_sort
+DEBUG tests/list_algos_tests.c:84: 
+----- test_merge_sort
+DEBUG tests/list_tests.c:231: ----- RUNNING: ./tests/list_tests.tst
+DEBUG tests/list_tests.c:205: 
+----- test_create
+DEBUG tests/list_tests.c:206: 
+----- test_create1
+DEBUG tests/list_tests.c:207: 
+----- test_push
+DEBUG tests/list_tests.c:208: 
+----- test_copy
+DEBUG tests/list_tests.c:209: 
+----- test_destroy1
+DEBUG tests/list_tests.c:210: 
+----- test_create1
+DEBUG tests/list_tests.c:211: 
+----- test_unshift
+DEBUG tests/list_tests.c:213: 
+----- test_join
+DEBUG tests/list_tests.c:217: 
+----- test_remove_middle
+DEBUG tests/list_tests.c:218: 
+----- test_destroy1
+DEBUG tests/list_tests.c:219: 
+----- test_create1
+DEBUG tests/list_tests.c:220: 
+----- test_split
+DEBUG tests/list_tests.c:222: 
+----- test_pop
+DEBUG tests/list_tests.c:223: 
+----- test_shift
+DEBUG tests/list_tests.c:224: 
+----- test_destroy
+DEBUG tests/radixmap_tests.c:102: ----- RUNNING: ./tests/radixmap_tests.tst
+DEBUG tests/radixmap_tests.c:97: 
+----- test_operations
+DEBUG tests/string_algos_tests.c:138: ----- RUNNING: ./tests/string_algos_tests.tst
+DEBUG tests/string_algos_tests.c:125: 
+----- test_find_and_scan
+DEBUG tests/string_algos_tests.c:129: 
+----- test_scan_performance
+DEBUG tests/string_algos_tests.c:113: SCAN COUNT: 1616000, END TIME: 2, OPS: 808000.000000
+DEBUG tests/string_algos_tests.c:130: 
+----- test_find_performance
+DEBUG tests/string_algos_tests.c:83: FIND COUNT: 146000, END TIME: 2, OPS: 73000.000000
+DEBUG tests/string_algos_tests.c:131: 
+----- test_binstr_performance
+DEBUG tests/string_algos_tests.c:59: BINSTR COUNT: 2077000, END TIME: 2, OPS: 1038500.000000
+DEBUG tests/bstree_tests.c:184: ----- RUNNING: ./tests/bstree_tests.tst
+DEBUG tests/bstree_tests.c:172: 
+----- test_create
+DEBUG tests/bstree_tests.c:173: 
+----- test_get_set
+DEBUG tests/bstree_tests.c:174: 
+----- test_traverse
+DEBUG tests/bstree_tests.c:23: KEY: test data 3
+DEBUG tests/bstree_tests.c:23: KEY: test data 2
+DEBUG tests/bstree_tests.c:23: KEY: test data 1
+DEBUG tests/bstree_tests.c:31: KEY: test data 3
+DEBUG tests/bstree_tests.c:31: KEY: test data 2
+DEBUG tests/bstree_tests.c:175: 
+----- test_delete
+DEBUG tests/bstree_tests.c:176: 
+----- test_destroy
+DEBUG tests/bstree_tests.c:177: 
+----- test_fuzzing
+DEBUG tests/bstring_tests.c:115: ----- RUNNING: ./tests/bstring_tests.tst
+DEBUG tests/bstring_tests.c:101: 
+----- test_create
+DEBUG tests/bstring_tests.c:102: 
+----- test_contents
+DEBUG tests/bstring_tests.c:108: 
+----- test_destroy
+DEBUG tests/darray_algos_tests.c:138: ----- RUNNING: ./tests/darray_algos_tests.tst
+DEBUG tests/darray_algos_tests.c:124: 
+----- test_quicksort
+DEBUG tests/darray_algos_tests.c:47: --- Testing quicksort sorting algorithm
+DEBUG tests/darray_algos_tests.c:125: 
+----- test_heapsort
+DEBUG tests/darray_algos_tests.c:47: --- Testing heapsort sorting algorithm
+DEBUG tests/darray_algos_tests.c:126: 
+----- test_mergesort
+DEBUG tests/darray_algos_tests.c:47: --- Testing mergesort sorting algorithm
+DEBUG tests/darray_algos_tests.c:129: 
+----- test_my_quicksort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_quicksort sorting algorithm
+DEBUG tests/darray_algos_tests.c:130: 
+----- test_my_heapsort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_heapsort sorting algorithm
+DEBUG tests/darray_algos_tests.c:131: 
+----- test_my_mergesort
+DEBUG tests/darray_algos_tests.c:47: --- Testing my_mergesort sorting algorithm
+DEBUG tests/darray_tests.c:147: ----- RUNNING: ./tests/darray_tests.tst
+DEBUG tests/darray_tests.c:133: 
+----- test_create
+DEBUG tests/darray_tests.c:134: 
+----- test_new
+DEBUG tests/darray_tests.c:135: 
+----- test_set
+DEBUG tests/darray_tests.c:136: 
+----- test_get
+DEBUG tests/darray_tests.c:137: 
+----- test_remove
+DEBUG tests/darray_tests.c:138: 
+----- test_expand_contract
+DEBUG tests/darray_tests.c:139: 
+----- test_push_pop
+DEBUG tests/darray_tests.c:140: 
+----- test_destroy
+DEBUG tests/hashmap_algos_tests.c:181: ----- RUNNING: ./tests/hashmap_algos_tests.tst
+DEBUG tests/hashmap_algos_tests.c:170: 
+----- test_fnv1a
+DEBUG tests/hashmap_algos_tests.c:171: 
+----- test_adler32
+DEBUG tests/hashmap_algos_tests.c:172: 
+----- test_djb
+DEBUG tests/hashmap_algos_tests.c:173: 
+----- test_jenkins
+DEBUG tests/hashmap_algos_tests.c:174: 
+----- test_distribution
+FNV	A32	DJB	JEN
+1010	999	974	1008
+1004	1019	1022	952
+1012	998	1027	1068
+1044	1048	957	1015
+1012	1002	1005	1018
+977	998	976	1002
+945	1006	998	957
+989	1021	986	1057
+1042	977	1011	965
+1002	1016	974	1002
+979	1020	978	988
+1001	1010	962	1045
+964	1011	959	1028
+1012	994	987	1004
+944	933	990	1007
+961	970	955	956
+966	952	987	956
+1016	1007	1002	934
+975	999	1039	969
+1058	1017	994	946
+936	993	989	1037
+1000	978	1035	1052
+1000	986	1021	1057
+988	910	988	996
+965	1002	1006	1036
+1064	1022	974	1053
+1024	1005	1021	1026
+1029	1009	1026	962
+1070	1053	1004	1038
+1023	972	986	1068
+965	1016	1014	1016
+998	1012	1034	1022
+976	1004	971	1017
+925	1045	995	972
+967	1002	955	956
+1020	1042	1007	942
+979	1008	952	999
+970	981	988	1078
+1051	1004	1025	1013
+977	989	1010	1015
+993	951	975	974
+996	982	1027	1054
+1013	1032	1008	1026
+1033	979	1008	1023
+987	982	983	1032
+1001	1005	1017	1005
+1034	972	1022	1003
+1017	1076	993	981
+978	959	948	1009
+957	990	941	1049
+963	1030	1021	1055
+968	967	975	932
+992	1021	995	933
+994	982	993	1008
+1046	1031	978	1012
+1004	1021	1039	1022
+1002	1009	1021	1077
+966	1020	1019	976
+1036	974	1000	963
+1034	981	1006	999
+1006	922	970	949
+985	1053	1004	967
+1012	1023	990	1056
+1028	1004	1066	1019
+992	966	1015	981
+1004	1001	1032	977
+1017	1006	1029	970
+999	970	1005	958
+979	969	1036	1026
+1004	952	1037	1008
+998	1012	961	997
+1064	1023	974	998
+1012	1031	1001	1042
+991	998	933	1001
+945	976	991	954
+978	1011	989	964
+1051	996	986	971
+1016	1028	1024	946
+1001	1012	1003	962
+1009	1053	1026	927
+966	1027	1054	1022
+1018	990	1054	996
+1012	951	960	1002
+1050	1015	1008	994
+1001	992	997	977
+995	1006	991	955
+1010	1018	1005	965
+986	942	1019	986
+1023	1032	972	1001
+951	973	1038	1015
+1028	1004	1029	983
+1026	950	1026	1025
+1007	1038	1013	1011
+1006	1079	1019	1027
+973	1042	978	1061
+994	959	925	978
+1002	963	1035	961
+1024	1016	1039	986
+1015	965	974	1049
+968	1038	1039	968
+DEBUG tests/hashmap_tests.c:133: ----- RUNNING: ./tests/hashmap_tests.tst
+DEBUG tests/hashmap_tests.c:122: 
+----- test_create
+DEBUG tests/hashmap_tests.c:123: 
+----- test_get_set
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG tests/hashmap_tests.c:124: 
+----- test_traverse
+DEBUG tests/hashmap_tests.c:20: KEY: test data 3
+DEBUG tests/hashmap_tests.c:20: KEY: test data 2
+DEBUG tests/hashmap_tests.c:20: KEY: test data 1
+DEBUG tests/hashmap_tests.c:28: KEY: test data 3
+DEBUG tests/hashmap_tests.c:28: KEY: test data 2
+DEBUG tests/hashmap_tests.c:125: 
+----- test_delete
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG src/lcthw/hashmap.c:151: TRY: 0
+DEBUG tests/hashmap_tests.c:126: 
+----- test_destroy
+DEBUG tests/list_algos_tests.c:89: ----- RUNNING: ./tests/list_algos_tests.tst
+DEBUG tests/list_algos_tests.c:83: 
+----- test_bubble_sort
+DEBUG tests/list_algos_tests.c:84: 
+----- test_merge_sort
+DEBUG tests/list_tests.c:231: ----- RUNNING: ./tests/list_tests.tst
+DEBUG tests/list_tests.c:205: 
+----- test_create
+DEBUG tests/list_tests.c:206: 
+----- test_create1
+DEBUG tests/list_tests.c:207: 
+----- test_push
+DEBUG tests/list_tests.c:208: 
+----- test_copy
+DEBUG tests/list_tests.c:209: 
+----- test_destroy1
+DEBUG tests/list_tests.c:210: 
+----- test_create1
+DEBUG tests/list_tests.c:211: 
+----- test_unshift
+DEBUG tests/list_tests.c:213: 
+----- test_join
+DEBUG tests/list_tests.c:217: 
+----- test_remove_middle
+DEBUG tests/list_tests.c:218: 
+----- test_destroy1
+DEBUG tests/list_tests.c:219: 
+----- test_create1
+DEBUG tests/list_tests.c:220: 
+----- test_split
+DEBUG tests/list_tests.c:222: 
+----- test_pop
+DEBUG tests/list_tests.c:223: 
+----- test_shift
+DEBUG tests/list_tests.c:224: 
+----- test_destroy
+DEBUG tests/radixmap_tests.c:102: ----- RUNNING: ./tests/radixmap_tests.tst
+DEBUG tests/radixmap_tests.c:97: 
+----- test_operations
+DEBUG tests/string_algos_tests.c:138: ----- RUNNING: ./tests/string_algos_tests.tst
+DEBUG tests/string_algos_tests.c:125: 
+----- test_find_and_scan
+DEBUG tests/string_algos_tests.c:129: 
+----- test_scan_performance
+DEBUG tests/string_algos_tests.c:113: SCAN COUNT: 1380000, END TIME: 2, OPS: 690000.000000
+DEBUG tests/string_algos_tests.c:130: 
+----- test_find_performance
+DEBUG tests/string_algos_tests.c:83: FIND COUNT: 144000, END TIME: 2, OPS: 72000.000000
+DEBUG tests/string_algos_tests.c:131: 
+----- test_binstr_performance
+DEBUG tests/string_algos_tests.c:59: BINSTR COUNT: 1937000, END TIME: 2, OPS: 968500.000000

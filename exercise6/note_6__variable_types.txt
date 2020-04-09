@@ -1,0 +1,9 @@
+Thu Nov 21 11:05:49 EST 2019
+
+This folder did the following excercises
+
+Formatted Printing
+excecise 3 	- using printf f 
+			- understanding escape codes (eg \n \t etc.)
+			- understanding format sequences (eg %s %d)
+			- for more info $man 3 printf  

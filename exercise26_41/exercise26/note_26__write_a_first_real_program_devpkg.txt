@@ -1,0 +1,54 @@
+2019-12-21 21:22:01
+
+This folder did the following excercises
+
+The Stack, Scope, And Globals
+excecise 26	- In this program we create a simple program that installs software
+
+				- The program is call devpkg and does the following:
+					- devpkg -S
+						Sets up a new install on a computer.
+					- devpkg -I
+						Installs a piece of sofware form a URL.
+					- devpkg -L
+						Lists all the software that's been installed.
+					- devpkg -F
+						Fetches some source code for manual building.
+					- devpkg -B
+						Builds fetched source code and installs it, even if already installed.
+
+				- The program reuses other peoples libraries which are mentioned below:
+					- the portability library from "The Apache Portable Runtime(APR)"
+						- retrieve and installed from:
+							- apr-1.4.6
+								https://archive.apache.org/dist/apr/apr-1.4.6.tar.gz
+							- apr-util-1.4.1
+								https://archive.apache.org/dist/apr/apr-util-1.4.1.tar.gz
+						- more info
+							- note_apr.txt
+							- apr.apache.orp
+					- the better String library (bstring) located at sourceforge
+						- retrieve and installed from:
+							- bstring v1.0.0
+								https://github.com/websnarf/bstring/archive/master.zip
+						- more info
+							- note_bstring.txt
+							- bstring.sourceforge.net
+
+				- Some new system libraies are also used in this  project
+					- libraies like unistd.h, stdarg.h, etc
+						- more info
+							- note_other_libs.txt
+
+				- PROJECT LAYOUT
+					- The Makefile source files 
+						- bstring.o
+							comes from		"bstrlib.c"		&		"bstrlib.h"
+						- db.o
+							comes from		"db.c"			&		"db.h"			contains code for database routines
+						- shell.o
+							comes from		"shell.c"		&		"shell.h"		some functions that make running shellcommands easier
+						- command.o
+							comes from		"command.c"		&		"command.h"		has all the commands devpkg	needs to be useful
+						- devpkg.c													contains the main function
+

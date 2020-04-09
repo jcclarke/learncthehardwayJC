@@ -1,0 +1,14 @@
+==22978== Memcheck, a memory error detector
+==22978== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==22978== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==22978== Command: ./tests/string_algos_tests.tst
+==22978== Parent PID: 22954
+==22978== 
+==22978== 
+==22978== HEAP SUMMARY:
+==22978==     in use at exit: 0 bytes in 0 blocks
+==22978==   total heap usage: 3 allocs, 3 frees, 5,200 bytes allocated
+==22978== 
+==22978== All heap blocks were freed -- no leaks are possible
+==22978== 
+==22978== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

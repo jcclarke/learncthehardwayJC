@@ -1,0 +1,49 @@
+2019-11-26 13:46:08
+
+This folder did the following excercises
+
+Pointers to Functions
+excecise 18	- In this program we created a pointers to functions, and a sorting algorithm
+				- Function pointers
+					Any function that matches the function pointer "signature" seen below
+						<return-type>	<function-name>		(parameter-list);
+					can be pointed to by that pointer
+
+				- Defining function pointers and some of their uses:
+					- wrap the name of the function with pointer syntax, then change the name to pointer name
+						eg.	int func					(char a, int n)										/* original function */
+							int (*func)					(char a, int n)										/* original function with name wrapped */
+							int (*point_func)			(char a, int n)										/* function pointer */
+					- for a function pointer that return a pointer to something, 
+					  do the same as above but add an extra * as seen below 
+						eg.	int *func					(char a, int n)										/* original function */
+							int *(*func)				(char a, int n)										/* original function with name wrapped */
+							int *(*point_func)			(char a, int n)										/* function pointer */
+					
+					- you can set pointer function to other functions
+						eg.	int function				(char a, int n){ ... }								/* function definition */
+							int (*point_func)			(char a, int n)	= &function							/* & optional */
+							int result	=		point_func('a', 9);											/* point_func runs function code*/				:o) 
+
+					- you can pass a function pointer as a function parameter 2 ways:
+						
+						- first way; use typedef to define the function outside of main
+							typedef int (*point_func)	(char a, int n);									/* pointer function declaration */
+							int function				(char a, int n){ ... }								/* function definition */
+							void func_with_func_param	(char a, int n, point_func p_func){ ... }			/* function with function pointer parameter */
+							func_with_func_param		('a', 10, function);								/* in the main function, pass function to func_with_func_param */
+						
+						- second way; define it within the main
+							int function				(char a, int n){ ... }								/* function definition */
+							void func_with_func_param	(char a, int n, int (*p_func)(char, int)){ ... }	/* function with function pointer parameter */
+							int (*point_func)			(char a, int n)	= &function							/* in the main function, initialize the pointer function (& optional) */
+							func_with_func_param		('a', 10, function);								/* in the main function, pass function to func_with_func_param */
+
+				- sorting algorithm
+					- bubble sort
+					- pretty inefficient with N^2 efficiency but simple implementation
+					- compare the adjacent element sizes within 2 for loops
+
+				
+					
+            - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 5.6 for more info  

@@ -1,0 +1,14 @@
+==15614== Memcheck, a memory error detector
+==15614== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==15614== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==15614== Command: ./tests/radixmap_tests.tst
+==15614== Parent PID: 15606
+==15614== 
+==15614== 
+==15614== HEAP SUMMARY:
+==15614==     in use at exit: 0 bytes in 0 blocks
+==15614==   total heap usage: 4 allocs, 4 frees, 4,280 bytes allocated
+==15614== 
+==15614== All heap blocks were freed -- no leaks are possible
+==15614== 
+==15614== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

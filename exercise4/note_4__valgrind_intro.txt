@@ -1,0 +1,10 @@
+Thu Nov 21 11:05:49 EST 2019
+
+This folder did the following excercises
+
+Introducing Valgrind
+excecise 4 	- installing valgrind with a script
+			- running valgrind on ex3 (=ex4)
+			- go to http://valgrind.org/downloads/	-> right click the latest release
+													-> copy link address
+													-> replace the books curl -O "download link" with "new copied address"

@@ -1,0 +1,14 @@
+==24074== Memcheck, a memory error detector
+==24074== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==24074== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==24074== Command: ./tests/ex29_tests
+==24074== Parent PID: 24073
+==24074== 
+==24074== 
+==24074== HEAP SUMMARY:
+==24074==     in use at exit: 0 bytes in 0 blocks
+==24074==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==24074== 
+==24074== All heap blocks were freed -- no leaks are possible
+==24074== 
+==24074== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

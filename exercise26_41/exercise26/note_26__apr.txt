@@ -1,0 +1,350 @@
+2019-12-22 00:26:09
+
+This file explains the meanings of functions and variables in the 
+Apache Portable Runtime (APR) libraries. 
+
+APR library functions and variables documentation retrieved from 
+https://apr.apache.org/docs/apr/1.7/
+https://apr.apache.org/docs/apr-util/1.6/
+
+excecise 26
+
+
+	
+	location of header files where functions and varibles found 
+	/usr/local/apr/include/apr-1/
+
+
+			- apr_pools.h
+
+				- apr_pool_t
+					The fundamental memory pool type
+
+						typedef struct apr_pool_t
+
+				- apr_pool_initilize
+					Setup all of the internal structures required 
+					to use pools
+
+						apr_status_t apr_pool_initilize ( void  );
+
+				- apr_pool_create
+					Create a new memory pool. 
+					The newly created pool becomes thae root pool
+					if parent is NULL, otherwise it inherits all 
+					the parent pool's attributes.
+
+						apr_status_t apr_pool_create (apr_pool_t ** newpool, apr_pool_t * parent)
+
+				- apr_pool_destroy
+					Destroy the memory pool.
+					It clears all the memory and the frees it up.
+
+						void apr_pool_destroy (apr_pool_t * p);
+
+
+			- apr_file_io.h
+
+				- apr_dir_make_recursive
+					Creates a new directory on the file system
+					but behaves like 'mkdir -p'. 
+					Creates intermediate directories as required.
+
+					apr_status_t apr_dir_make_recursive (const char * path, apr_fileperms_t, apr_pool_t * pool);
+
+				- 
+					
+
+						
+
+
+			- apr_errno.h
+
+				- apr_status_t
+					Type for specifying an error or status code.
+
+						typedef int apr_status_t
+
+				- APR_SUCCESS
+					No error.
+
+						#define APR_SUCCESS 0
+
+				- APR_CHILD_DONE
+					Child process is no longer running.
+
+						#define APR_CHILD_DONE (APR_OS_START_STATUS +5)
+
+
+			- apr_file_info.h
+
+				- APR_UREAD
+					Depreciated: See also APR_FPROT_UREAD
+					Read by user
+
+						#define APR_UREAD APR_FPROT_UREAD
+
+				- APR_UWRITE
+					Depreciated: See also APR_FPROT_UWRITE
+					Write by user
+
+						#define APR_UWRITE APR_FPROT_UWRITE
+
+				- APR_UEXECUTE
+					Depreciated: See also APR_FPROT_UEXECUTE
+					Execute by user
+
+						#define APR_UEXECUTE APR_FPROT_UEXECUTE
+
+				- APR_GREAD
+					Depreciated: See also APR_FPROT_GREAD
+					Read by group
+
+						#define APR_GREAD APR_FPROT_GREAD
+
+				- APR_GWRITE
+					Depreciated: See also APR_FPROT_GWRITE
+					Write by group
+
+						#define APR_GWRITE APR_FPROT_GWRITE
+
+				- APR_GEXECUTE
+					Depreciated: See also APR_FPROT_GEXECUTE
+					Execute by group
+
+						#define APR_GEXECUTE APR_FPROT_GEXECUTE
+
+				- 
+					
+
+						
+
+
+			- apr_thread_proc.h
+
+				- apr_proc_t
+					The apr process type
+
+						typedef struct apr_proc_t {
+							pit_t		pid;												// the process ID
+							apr_file_t	*in;												// Parent's side of pipe to child's stdin.
+							apr_file_t	*out;												// Parent's side of pipe to child's stdout.
+							apr_file_t	*err;												// Parent's side of pipe to child's stdouterr.
+							char		*invoked;											// used for debug in APR 1.0.
+							HANDLE		hproc;												// not sure, Win32 only but is NULL for every case.
+						}
+
+				- apr_proc_create
+					Create a new process and execute a new program 
+					within that process.
+
+						apr_status_t apr_proc_create (apr_proc_t *			new_proc,		// The resulting process handle.
+													  const char *			progname,		// The program to run.
+													  const char *const *	agrs,			// The arguments to pass to the new program. The first one is the 
+																							// program name.
+													  const char *const *	env,			// The new environment table for the new process. This should be a 
+																							// list of NULL-terminated strings. 
+													  apr_procattr_t *		attr,			// The procattr we should use to deterine how to create the new process.
+													  apr_pool_t *			pool			// The pool to use.
+													 )
+
+				- apr_proc_wait
+					Wait for the child process to die.
+
+						apr_status_t apr_proc_wait	 (apr_proc_t *			proc,			// The process handle that corresponds to the desired child process.
+													  int *					exitcode,		// The returned exit status of thhe child, if a child process dies, or 
+																							// the signal that caused the child to die.
+													  apr_exit_why_e *		exitwhy,		// Why the child died. bitwise or (APR_PROC_EXIT, APR_PROC_SIGNAL, 
+																							// APR_PROC_SIGNAL_CORE).
+													  apr_wait_how_e *		waithow			// How should the process wait (APR_WAIT, APR_NOWAIT).
+
+				- apr_procattr_t
+					Opaque process attributes structure.
+
+						typedef struct apr_procattr_t apr_procattr_t
+
+				- apr_procattr_create
+					Create and initialize a new procattr variable.
+
+						apr_status_t apr_procattr_create (apr_procattr_t **	new_attr,		// the newly created procattr.
+														  apr_pool_t *		cont			// the pool to use.
+														 )
+
+				- apr_procattr_io_set
+					Determine if any of stdin, stdout, or stderror 
+					should be linked to pipes when starting a 
+					child process.
+
+						apr_status_t apr_procattr_io_set (apr_procattr_t *	attr,			// The procattr we care about.
+														  apr_int32_t		in,				// Should stdin be a pipe back to the parent.
+														  apr_int32_t		out,			// Should stdout be a pipe back to the parent.
+														  apr_int32_t		err				// Should stderr be a pipe back to the parent.
+														 )
+
+				- apr_procattr_dir_set
+					Set which directory the child process should 
+					start executing in.
+
+						apr_status_t apr_procattr_dir_set (apr_procattr_t *	attr,			// The procattr we care about .
+														   const char *		dir				// Which dir to start in. Default is parent dir where create process is 
+																							// called.
+														  )
+
+				- apr_procattr_cmdtype_set
+					Set what type of command the child process will 
+					call.
+
+						apr_status_t apr_procattr_cmdtype_set (apr_procattr_t *	attr,		// The procattr we care about 
+															   apr_cmdtype_e 	cmd			// The type of command. (one of APR_SHELLCMD, APR_PROGRAM, 
+																							// APR_PROGRAM_ENV, APR_PROGRAM_PATH)
+															  )
+
+				- apr_cmdtype_e
+					Enumeration that determines how the program 
+					will be run.
+
+						enum apr_cmdtype {APR_SHELLCMD,										// Use the shell to invoke the program.
+										  APR_PROGRAM,										// Invoke the program directly, no copied environment.
+										  APR_PROGRAM_ENV,									// Invoke the program, replicating out environment.
+										  APR_PROGRAM_PATH,									// Find program on path, use our environemnt.
+										  APR_SHELLCMD_ENV									// Use the shell to invole the program, replicating our environment.
+										 }
+
+				- apr_exit_why_e
+					Enumeration to hold why the child process 
+					exited.
+
+						enum apr_exit_why_e {APR_PROC_EXIT			= 1,					// process exited normally
+											 APR_PROC_SIGNAL		= 2,,					// process exited due to a signal
+											 APR_PROC_SIGNAL_CORE	= 4,					// process exited and dumped a core file
+											}
+
+				- apr_wait_how_e
+					Enumeration that determines how the process 
+					should wait.															// wait or no wait.
+
+						enum apr_wait_how_e {APR_WAIT,										// wait for the specified process to finish
+											 APR_NOWAIT										// don't wait  - just see if it finished
+											}
+
+				- APR_NO_PIPE
+					There is no special channel for the child
+					process. It inherits the parent's corresponding
+					IO stream.
+
+						#define APR_NO_PIPE 0
+
+			- apr_fnmatch.h
+
+				- apr_fnmatch
+					Try to match the string to the given pattern, 
+					return APR_SUCCESS if match, else return
+					APR_FNM_NOMATCH. Note the there is no sich thing
+					as an illegal pattern.
+
+						apr_status_t apr_fnmatch (const char * pattern 							// the pattern to match to
+												  const char * strings							// The strings we are trying to match
+												  int		   flags							// flags to use in the matchh. Bitwize OR.
+						)
+					
+
+			- apr_getopt.h
+
+				- apr_getopt_t
+					The structure to store command line argument information
+
+						typedef struct apr_getopt {
+							apr_pool_t				* cont;										// context for processing
+							apr_getopt_err_fn_t		* errfn;									// function to print error message (NULL == no messages)
+							void					* errarg;									// user defined first argument to pass to error message
+							int						  ind;										// index into parent argv vector
+							int						  opt;										// character checked for validity
+							int						  reset;									// reset getopt
+							int						  argc;										// count the arguments
+							const char			   ** argv;										// an array of pointers to arguments
+							char const				* place;									// argument associated with option
+							int						  interleave;								// set to nonezero to support interleaving options with regular args
+							int						  skip_start;								// start of non-option arguments skipped for interleaving
+							int						  skip_end;									// end of non-option arguments skipped for interleaving
+							} apr_getopt;
+
+				- apr_getopt
+					Parse the options initialized by apr_getopt_init().
+
+						apr_status_t apr_getopt (apr_getopt_t	* os,							// The apr_getopt_t structure returned by apr_getopt_init().
+												 const char		* opts,							// A string of characters that are acceptable to the program. Characters
+																									follwed by ":" are required to have an option associated.
+												 char			* option_ch,					// The next option character parsed.
+												 const char	   ** option_arg					// The argument following the otion character
+						)
+
+				- apr_getopt_init
+					Initialize the arguments for parsing by apr_getopt()
+
+						apr_status_t apr_getopt_init (apr_getopt_t		   ** os,				// The options structurr created for apr_getopt.
+													  apr_pool_t			* cont,				// The pool to operate on.
+													  int					  argc,				// The number of arguments to parse.
+													  const char * const	* argv				// The array fo arguments to parse.
+													 )
+
+
+
+
+	location of header files where functions and varibles found
+	/usr/local/apr/include/apr-util-1/
+
+			- apr_uri.h
+
+				- apr_uri_t
+					A structure to encompass all of the fields in a uri 
+					(Uniform Resource Identifier).
+
+						struct apr_uri_t {
+							char * scheme;
+							char * hostinfo;
+							char * user;
+							char * password;
+							char * hostname;
+							char * port_str;
+							char * path;
+							char * query;
+							char * fragment;
+							
+							struct hostent * hostent;
+							
+							apr_port_t port;
+							
+							unsigned is_initialized:1;
+							
+							unsigned dns_looked_up:1;
+							unsigned dns_resolved:1;
+						}
+
+				- apr_uri_parse
+					Parse a given URI, fill in all the fields of a apr_uri_t
+					structure. This eliminates the necessity of the 
+					extracting host, port, path, query info repeatedly in the 
+					modules.
+
+						apr_status_t apr_uri_parse(apr_pool_t * p,
+												   const char * hostinfo,
+												   apr_uri_t * uptr
+												  )
+
+				- 
+					
+
+						
+
+			- 
+
+				- 
+					
+
+						
+
+				- 
+					
+
+						
+

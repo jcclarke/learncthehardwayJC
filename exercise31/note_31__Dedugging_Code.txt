@@ -1,0 +1,61 @@
+Thu Nov 21 11:05:49 EST 2019
+
+This folder did the following excercises
+
+Debugging Code
+excecise 31		- Created a simple program to debug using GDB
+					- Debug Printing vs Valgrind vs GDB
+						- Debug Printing
+							- Gives the flexibility to track how things a going, works well with 
+							  unit testing and can be printed logs for easy tracking.
+							  Used to primarily find logic errors.
+						- Valgrind 
+							- Does debug printing but its primarily focused on memory related 
+							  errors.
+						- GDB
+							- Usually as a last resort if the first 2 options don't reeal the
+							  root cause of the errors. 
+					- The scientific method should be used when debugging.
+						- List all bugs
+						- List all potential causes for each bug.
+						- List the files and functions where each cause may be occuring.
+						- Test each case and rule them out if shown to not be the cause, and note 
+							why it is not the cause.
+						- Add to list of bugs and causes when unforseen results occurs.
+						- Fix as you go along.
+					- Using GDB
+						- starting gdb
+							- "gdb <executable>" to run gdb.
+							- "gdb <pid>" to process attach a running program
+						- gdb commands
+							- help
+								get gdb help
+							- break <line number>
+								set a break point to pause execution
+							- run [args]
+								begin program
+							- cont
+								continue execution till new breakpoint or error
+							- backtrace (or bt)
+								dumps the trace of function calls leading to current call in the program.
+							- step
+								step through code and into functions
+							- next
+								step through code and over functions
+							- set var <x = y>
+								set variable x equal to y
+							- print <x>  (or p <x>)
+								print out the value of x. C syntax can be used to print out 
+								pointers and struct contents.
+							- 'carriage return'
+								do the last command	
+							- quit
+								exit
+						- gdb tricks
+							- "gdb --args"
+								this passes arguments to the program
+							- thread apply all bt
+								dumps a backtrace of all threads
+							- "gdb --batch --ex r --ex bt q --args"
+								Runs the program so that, if it crashes you get a back trace.  (Very useful)
+						- man7 gdb for more info

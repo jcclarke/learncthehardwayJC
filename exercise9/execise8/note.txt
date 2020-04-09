@@ -1,0 +1,14 @@
+2019-11-21 23:58:08
+
+This folder did the following excercises
+
+Size and Arrays
+excecise 8 	- using different arrays
+			- Using sizeof() to determine array size
+			- The size of each data type (eg char, float, int, etc.) is different.
+			- Side note: the size of int may differ between 1, 2, 3, 4, etc depending on the machine the cod is executed. 
+			- So the sizeof(array)/sizeof(variable_type) gives you the number of elements in the array. 
+			- A \0 (null character) is appended to an array when using "" (quotation marks) to define an array of characters.
+			- Note for int arrays: if you print an element number larger than the array size you may not get an error, but you ill get an unexpected/incorrect result.
+			- Note for char arrays: you get the same as above.
+			- the above two cause stack problems.

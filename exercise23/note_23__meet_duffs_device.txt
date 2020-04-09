@@ -1,0 +1,12 @@
+2019-12-15 20:36:14
+
+This folder did the following excercises
+
+Meet Duff's Device
+excecise 23	- In this program we explore a a means of loop unrolling using do while loop nested in a case switch statement
+				- This was done to speedup the code execution. 
+				- we include a minimum bunch of repetative code lines that are guaranteed to run in the loop so that
+					 the loop code line execution is minimized.
+				- mordern compilers do loop unrolling automatically so this is no longer useful
+				- NEVER DO THIS AGAIN
+

@@ -1,0 +1,99 @@
+2019-12-21 22:32:31
+
+This file explains the meanings of functions and variables in the Better String library 
+
+Bstring library functions and variables documentation retrieved from 
+https://raw.githubusercontent.com/websnarf/bstrlib/master/bstrlib.txt
+
+excecise 26	- functions and varibles found in bstrlib.c and bstrlib.h 
+
+				- bstring
+					A bstring is a pointer to a tagbstring.
+
+						typedef struct tabstring *bstring
+
+				- tagbstring
+					A character buffer that has the following
+
+						mlen - lower bound for memory allocation
+						slen - the exact length of the bstring
+						data - a single contiguous buffer of unsigned chars
+
+				- bread
+					Read an entire stream into a bstring (struct), verbatim.
+						
+						extern bstring bread (bNread readPtr, void * parm);
+
+				- bNread
+					works like fread but casts void pointer instead of a FILE pointer.
+					A function pointer that allows for block devices (eg sockets,
+					blocks of memory, procedurally generated strings, etc) other 
+					than just file streams (eg. fread) to be read if desired.
+					The function protorype is defined below
+
+						typedef size_t (* bNread) (void *buff, size_t elsize, size_t nelem, void *parm);
+
+				- bdestroy
+					Deallocate the bstring passed.
+					Returns BSTR_ERR if there is an attempt to call bdestroy 
+					on any declared struct tabstring or write protected bstring.
+
+						extern int bdestroy (bstring b);
+
+				- bconchar
+					Concatenate the character c to the end of the bstring b.
+					returns BSTR_OK of BSTR_ERR.
+						
+						extern int bconchar (bstring b, char C);
+
+				- bfromcstr
+					Take a standard C library style '\0' terminated char buffer and
+					generate a bstring with the same contents as the char buffer
+					Returns NULL if error occurs
+
+						extern bstring bfromcstr (const char * str);
+
+				- blength
+					Returns the length of the bstring. Returns 0 if bstring is NULL
+
+						int blength (const_bstring b);
+
+				- binstr
+					Search for the bstring s2 in s1 starting at position pos and 
+					looking forward (increasing) driection.
+					Returns the first location after pos, or BSTR_ERR if not found.
+
+						extern int binstr (const_bstring s1, int pos, const_bstring);
+
+				- bgets
+					Read a bsting from a stream.
+					As many bytes as is necessary are read from the terminator is
+					consumed or no more characters are available from the stream
+
+						extern bstring bgets (bNgetc getcPtr, void * parm, char terminator);
+
+				- bNgetc
+					works like fgetc but casts void pointer instead of a FILE pointer.
+					A function pointer that allows for block devices (eg sockets,
+					blocks of memory, procedurally generated strings, etc) other 
+					than just file streams (eg. fread) to be read if desired.
+					The function prototype is defined below
+
+						tpydef int (* bNgetc) (void * parm);
+
+				- bdata
+					Returns the char * data portion of the bstring b. If b is NULL,
+					NULL is returned.
+
+						char * bdata (bstring b);
+
+				- btrimws
+					Delete whitespace contiguous from both ends of the bstrings. This
+					function will return with BSTR_ERR if b is NULL or of length 0, 
+					otherwise BSTR_OK is retruned
+
+						extern int btrimws (bstring b);
+
+				- BSTR_ERR
+					An error indicator
+				- 

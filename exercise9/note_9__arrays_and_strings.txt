@@ -1,0 +1,10 @@
+2019-11-22 13:02:09
+
+This folder did the following excercises
+
+Arrays and Strings
+excecise 9	- different ways of initializing strings
+			- if atleast the first element of an array is set, C fills all the remaining elements automatically with 0 for ints and chars (0 not '0' for chars)
+			- chars in ints arrays print out ascii # and ints in char arrays print out the ascii char
+			- the '\0' char terminates the char array after all the zeros.
+			- it is more common to do a string using char *<variable_name> = "<name>" ; over char variable_name[] = {'<char>',  ...}

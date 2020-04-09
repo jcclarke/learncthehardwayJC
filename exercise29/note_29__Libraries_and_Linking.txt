@@ -1,0 +1,62 @@
+2020-01-21 10:07:36
+
+This folder did the following excercises
+
+Libraries and Linking 
+excecise 29	- In this program we explore how to manually create a library and test the functions within
+
+			- Types of libraries
+
+				- There are 2 types
+					- static
+						These are containers for a set of ".o" object files and their functions, which can be 
+						treated like one giant ".o" file when building programs.
+						They can be made using ar and ranlib, and end with the ".a" file extension
+					-dynamic
+						These files are built and placed in a common location. When the program is run, the OS
+						dynamically loads these files and links them to the program on the fly.
+						They typically end in the ".so" and ".dll" files extensions, but have many numberous other
+						file extensinos depending on OS and OS version.
+				- When is it usually better to use one over the other
+					- static
+						They tend to be better for small to medium sized projects because they work on more OSes 
+						and are easier to deal with. As much code as possible can be put into the static library 
+						so that it cna be linked to unit tests and and file programs as needed.
+					- dynamic
+						These tend to be better in larger systems when space is limited or when a multitude of
+						programs use common functionality. In this case, you don't want to statically link all 
+						code for the common features to every program as that wastes space. Instead, they are 
+						put in a dynamic library so that it is loaded once for all that programs.
+
+			- dlfcn.h
+				Dynamic linking header library 
+					
+				- functions
+
+					- dlclose
+						close a dlopen object
+
+					- dlerror
+						get diagnostic information (a NULL terminated character string describing the last error)
+						
+					- dlopen
+						gain access to an executable object file
+
+					- dlsym
+						obtain the address of a symbol from a dlopen object
+
+					- RTLD_NOW
+						Relocations are performed when the object is loaded
+			
+				- see pubs.opengroup.org/onlinepubs//009695399/basedefs/dlfcn.h.html for more info.			
+
+			- NOTE
+				If you change a few bytes in the ".so" file, dlopen will not load the function because the
+				file is corrupted. (ps. this was not and exhaustive test but a quick test.)
+
+			
+			- Side notes
+				To get the Makefile to compile correctly with the library in UBUNTU, I had to add 2 more targets
+				for the src and tests compilations. This is done so that when they are compiled, the -ldl flag is
+				added to the end of the gcc command.
+				To streamline the package, objs directory was added for all the object files.

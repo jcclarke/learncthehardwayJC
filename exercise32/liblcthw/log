@@ -1,0 +1,75 @@
+==29076== Memcheck, a memory error detector
+==29076== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==29076== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==29076== Command: ./tests/list_tests.tst
+==29076== Parent PID: 29075
+==29076== 
+==29076== Invalid free() / delete / delete[] / realloc()
+==29076==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==29076==    by 0x10A7A0: List_clear_destroy (list.c:42)
+==29076==    by 0x10A33D: test_destroy1 (list_tests.c:51)
+==29076==    by 0x10A33D: all_tests (list_tests.c:205)
+==29076==    by 0x1090BA: main (list_tests.c:227)
+==29076==  Address 0x10b305 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise32/liblcthw/tests/list_tests.tst segment
+==29076== 
+==29076== Invalid free() / delete / delete[] / realloc()
+==29076==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==29076==    by 0x10A7A0: List_clear_destroy (list.c:42)
+==29076==    by 0x10A52E: test_destroy1 (list_tests.c:51)
+==29076==    by 0x10A52E: all_tests (list_tests.c:214)
+==29076==    by 0x1090BA: main (list_tests.c:227)
+==29076==  Address 0x10b2ce is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise32/liblcthw/tests/list_tests.tst segment
+==29076== 
+==29076== Invalid free() / delete / delete[] / realloc()
+==29076==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==29076==    by 0x10A7A0: List_clear_destroy (list.c:42)
+==29076==    by 0x10A6D7: test_destroy (list_tests.c:42)
+==29076==    by 0x10A6D7: all_tests (list_tests.c:220)
+==29076==    by 0x1090BA: main (list_tests.c:227)
+==29076==  Address 0x10b305 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise32/liblcthw/tests/list_tests.tst segment
+==29076== 
+==29076== 
+==29076== HEAP SUMMARY:
+==29076==     in use at exit: 48 bytes in 2 blocks
+==29076==   total heap usage: 18 allocs, 22 frees, 1,432 bytes allocated
+==29076== 
+==29076== LEAK SUMMARY:
+==29076==    definitely lost: 24 bytes in 1 blocks
+==29076==    indirectly lost: 0 bytes in 0 blocks
+==29076==      possibly lost: 0 bytes in 0 blocks
+==29076==    still reachable: 24 bytes in 1 blocks
+==29076==         suppressed: 0 bytes in 0 blocks
+==29076== Rerun with --leak-check=full to see details of leaked memory
+==29076== 
+==29076== ERROR SUMMARY: 6 errors from 3 contexts (suppressed: 0 from 0)
+==29076== 
+==29076== 1 errors in context 1 of 3:
+==29076== Invalid free() / delete / delete[] / realloc()
+==29076==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==29076==    by 0x10A7A0: List_clear_destroy (list.c:42)
+==29076==    by 0x10A6D7: test_destroy (list_tests.c:42)
+==29076==    by 0x10A6D7: all_tests (list_tests.c:220)
+==29076==    by 0x1090BA: main (list_tests.c:227)
+==29076==  Address 0x10b305 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise32/liblcthw/tests/list_tests.tst segment
+==29076== 
+==29076== 
+==29076== 2 errors in context 2 of 3:
+==29076== Invalid free() / delete / delete[] / realloc()
+==29076==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==29076==    by 0x10A7A0: List_clear_destroy (list.c:42)
+==29076==    by 0x10A52E: test_destroy1 (list_tests.c:51)
+==29076==    by 0x10A52E: all_tests (list_tests.c:214)
+==29076==    by 0x1090BA: main (list_tests.c:227)
+==29076==  Address 0x10b2ce is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise32/liblcthw/tests/list_tests.tst segment
+==29076== 
+==29076== 
+==29076== 3 errors in context 3 of 3:
+==29076== Invalid free() / delete / delete[] / realloc()
+==29076==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==29076==    by 0x10A7A0: List_clear_destroy (list.c:42)
+==29076==    by 0x10A33D: test_destroy1 (list_tests.c:51)
+==29076==    by 0x10A33D: all_tests (list_tests.c:205)
+==29076==    by 0x1090BA: main (list_tests.c:227)
+==29076==  Address 0x10b305 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise32/liblcthw/tests/list_tests.tst segment
+==29076== 
+==29076== ERROR SUMMARY: 6 errors from 3 contexts (suppressed: 0 from 0)

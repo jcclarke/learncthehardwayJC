@@ -1,0 +1,12 @@
+2019-11-22 14:12:38
+
+This folder did the following excercises
+
+If, Else-If, Else
+excecise 12	- 
+             - if statement structure and usage
+                 - if (<test>)		{<code>}
+				   else if (<test>)	{<code>}
+				   else (<test>){	{<code>}
+                 - <test>        is always required to know if to enter the staement
+                 - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 4.3 for more info

@@ -1,0 +1,30 @@
+2019-11-29 18:34:21
+
+This folder did the following excercises
+
+The Stack, Scope, And Globals
+excecise 20	- In this program we explore the stack, scope, and globals
+				- variable scope
+					- a variable with the same name and typecan be defined in the main and a funtion and they are independant of one another
+					- it is also true for a varible defined in an if-statement/loop code block and another in a function above.
+					- a new variable defined in a function or code block is localized to itself.
+				- Globals
+					- use extern to to create globals
+					- static declarion in a file with functions that access it can also be used as a Global with limitied access
+				- new code file functions
+					- extern type 
+						it says the variable exists but its in another 'external location
+					- static (declaring variables at the top of the file)
+						the variable is only used in this file
+					- static (decalring variables within a function)
+						the variable is defined in the file but only accessible in the function
+					- const 
+						a constant value
+				- Things to do to avoid bugs due to scope and memory in your code
+					- Don't "shadow" (duplicate variable name in a function and a code block) a variables in different cde blocks
+					- Avoid Globals
+					- use get and set functions to access globals if you need them
+					- When in doubt, put it on the heap
+					- Don't use static variables as the are a pain to use with concurent thread
+					- Avoid reusing function parameters
+             see gcc.gnu.org/onlinedocs/cpp/index.html#SEC_Contents sections 2.4, 3.5, 3.7.1  for more info  

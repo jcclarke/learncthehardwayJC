@@ -1,0 +1,75 @@
+==23905== Memcheck, a memory error detector
+==23905== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==23905== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==23905== Command: ./tests/list_tests.tst
+==23905== Parent PID: 23902
+==23905== 
+==23905== Invalid free() / delete / delete[] / realloc()
+==23905==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==23905==    by 0x10A850: List_clear_destroy (list.c:42)
+==23905==    by 0x10A3ED: test_destroy1 (list_tests.c:51)
+==23905==    by 0x10A3ED: all_tests (list_tests.c:209)
+==23905==    by 0x10919A: main (list_tests.c:231)
+==23905==  Address 0x10b435 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise34/liblcthw/tests/list_tests.tst segment
+==23905== 
+==23905== Invalid free() / delete / delete[] / realloc()
+==23905==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==23905==    by 0x10A850: List_clear_destroy (list.c:42)
+==23905==    by 0x10A5DE: test_destroy1 (list_tests.c:51)
+==23905==    by 0x10A5DE: all_tests (list_tests.c:218)
+==23905==    by 0x10919A: main (list_tests.c:231)
+==23905==  Address 0x10b3fe is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise34/liblcthw/tests/list_tests.tst segment
+==23905== 
+==23905== Invalid free() / delete / delete[] / realloc()
+==23905==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==23905==    by 0x10A850: List_clear_destroy (list.c:42)
+==23905==    by 0x10A787: test_destroy (list_tests.c:42)
+==23905==    by 0x10A787: all_tests (list_tests.c:224)
+==23905==    by 0x10919A: main (list_tests.c:231)
+==23905==  Address 0x10b435 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise34/liblcthw/tests/list_tests.tst segment
+==23905== 
+==23905== 
+==23905== HEAP SUMMARY:
+==23905==     in use at exit: 48 bytes in 2 blocks
+==23905==   total heap usage: 18 allocs, 22 frees, 1,432 bytes allocated
+==23905== 
+==23905== LEAK SUMMARY:
+==23905==    definitely lost: 24 bytes in 1 blocks
+==23905==    indirectly lost: 0 bytes in 0 blocks
+==23905==      possibly lost: 0 bytes in 0 blocks
+==23905==    still reachable: 24 bytes in 1 blocks
+==23905==         suppressed: 0 bytes in 0 blocks
+==23905== Rerun with --leak-check=full to see details of leaked memory
+==23905== 
+==23905== ERROR SUMMARY: 6 errors from 3 contexts (suppressed: 0 from 0)
+==23905== 
+==23905== 1 errors in context 1 of 3:
+==23905== Invalid free() / delete / delete[] / realloc()
+==23905==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==23905==    by 0x10A850: List_clear_destroy (list.c:42)
+==23905==    by 0x10A787: test_destroy (list_tests.c:42)
+==23905==    by 0x10A787: all_tests (list_tests.c:224)
+==23905==    by 0x10919A: main (list_tests.c:231)
+==23905==  Address 0x10b435 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise34/liblcthw/tests/list_tests.tst segment
+==23905== 
+==23905== 
+==23905== 2 errors in context 2 of 3:
+==23905== Invalid free() / delete / delete[] / realloc()
+==23905==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==23905==    by 0x10A850: List_clear_destroy (list.c:42)
+==23905==    by 0x10A5DE: test_destroy1 (list_tests.c:51)
+==23905==    by 0x10A5DE: all_tests (list_tests.c:218)
+==23905==    by 0x10919A: main (list_tests.c:231)
+==23905==  Address 0x10b3fe is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise34/liblcthw/tests/list_tests.tst segment
+==23905== 
+==23905== 
+==23905== 3 errors in context 3 of 3:
+==23905== Invalid free() / delete / delete[] / realloc()
+==23905==    at 0x4C30F90: free (vg_replace_malloc.c:540)
+==23905==    by 0x10A850: List_clear_destroy (list.c:42)
+==23905==    by 0x10A3ED: test_destroy1 (list_tests.c:51)
+==23905==    by 0x10A3ED: all_tests (list_tests.c:209)
+==23905==    by 0x10919A: main (list_tests.c:231)
+==23905==  Address 0x10b435 is in a r-x mapped file /home/jean-claude/cCodeProjectsAndTutorials/learnCTheHardWay/execise34/liblcthw/tests/list_tests.tst segment
+==23905== 
+==23905== ERROR SUMMARY: 6 errors from 3 contexts (suppressed: 0 from 0)

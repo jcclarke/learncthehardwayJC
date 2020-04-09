@@ -1,0 +1,7 @@
+2019-11-21 13:11:31
+
+This folder did the following excercises
+
+The Structure Of A C Program
+excecise 5 	- explaining the parts of a C program
+			- read pg 28-29 for explanation

@@ -1,0 +1,62 @@
+2019-11-25 21:28:22
+
+This folder did the following excercises
+
+Heap And Stack Memory Allocation
+excecise 17	- In this program we created a database for an address book using the following 
+				- defining constants
+					defined at the top of the file and is defined as follows
+						#define <constant_name> <constant_value>
+					eg.
+						#define constant 20
+				- fixed size structs
+					- the size of the struct is determined using primitive data types and fixed size arrays
+					- a struct with a nested struct can be fixed size if the nested struct is fixed size
+				- die function created 
+					- kills the program in case of incorrect input or failed function calls
+					- uses errno.h to  access 'errno' and 'perrer' to check for system errors
+						errno -- holds the the number of the last error message
+						perror -- prints out an error message
+					- it checks to see if the error is cause by the system, or the user.
+				- FILE functions
+					defined in stdio.h 
+					~$man 3 <function>        in terminal to see definiton and usage
+						fopen	-- stream open function
+						fread	-- binary stream input
+						fwrite	-- binary stream output
+						fclose	-- close a stream
+						fflush	-- flush a stream (discards input buffer data or moves output buffer data to the stream)
+						rewind	-- sets file position indicator to the the begining of the file
+				- nested struct pointers
+					struct of structs use nested pointers
+						struct1 -> struct2 -> ... ->  array[index];
+				- copying struct prototyes
+					just like assigning primitive datatypes, initialized structs can be copied to one another using the '=' operator
+				- converting strings to int
+					atoi	-- convert the initial portion of a string to an integer
+				- Allocating large data to the heap
+					malloc	-- allocate the size bytes and return a pointer to the allocated memory
+				- NULL is 0
+					boulean tests can be done on pointers if they point NULL
+						eg.
+							if (!ptr) die ("fail")
+							if (!ptr) equivalent to if (ptr == NULL)
+	
+			- The Heap
+				- all the remaining memory on you machine
+				- use "malloc" to get access to it from the OS
+				- use "free" to release the memory bcak to the OS
+	
+			- The Stack
+				- stores temporary variables created by functions
+				- it uses a LIFO data structure where the last created variable put (pushed) on the stack is the first one removed (popped) from the stack
+				- it prevents memory leaks
+				- it is used by default in C
+	
+			- PROBLEMS WITH STACKS AND HEAPS
+				- A pointer stored in the stack, pointing to a heap block of memory from malloc, the pointer will be lost when it is popped from the stack 
+					after the function exits
+				- A "stack overflow" can be caused when too much data is put onto the stack causing the program to abort
+				- When a pointer pointing to data created in the funtion located on the stack is returned to another function, then the receiving function
+					will "segmentation fault" (segfault) because the actual data popped off the stack and disappeared
+	

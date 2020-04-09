@@ -1,0 +1,56 @@
+2019-11-27 23:22:17
+
+This folder did the following excercises
+
+A Simple Object System
+excecise 19	- In this program we make use of the cpp pre-processor, and create an OOP system using
+			  an object header file and object soucre file
+				- header file
+					- used to put datatypes and function definitions
+					- this is standard C practice
+				- cpp pre-processor
+					- it's a template processing system
+					- can be used to:
+						- store constants
+						- make macros
+						- as a code generator to create template code
+					- how it works
+						- searches for the # (octothorpe character/number sign/hashtag) 
+						- then it replaces the filename text with the macros from that file's contents
+					- some advanced CPP actions and techniuques with syntax
+
+						- "if not defined", the run the code in the if statement. eg.
+							#ifndef _object_h
+							<lines of code>
+							#endif
+
+						- concatenation is done with ## to combine whatever you want
+							variable##Kitty												//variable is "Hello" ==> HelloKitty 
+
+						- define is used to define the following
+							- headerfile definition
+								#define _object_h
+							- function macro definitions
+								void full_function(int i, char * word, char a)			//defined function somewhere in header file
+								#define func(I,C)	full_function(I, C##character,C)	//macro to create func, which is a short version of full_function
+							- store constants
+								#define CONST 128
+
+				- the void functions return-type has 2 different meanings
+					- the absence of a return value
+						void func(int i){
+							<code>
+						}																//this will return nothing
+					- a pointer with the absence of type.
+						void *func(int){
+							void *next = null
+							<code>														
+							return next
+						}																//this will return a pointer void of a type
+				- new functions and their definitions
+					- srand(seed)
+						initializes the seed value for the suedo-random number generator
+					- rand()
+						returns a random number
+					- time()
+						give you the time

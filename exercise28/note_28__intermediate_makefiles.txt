@@ -1,0 +1,189 @@
+2020-01-21 10:07:36
+
+This folder did the following excercises
+
+The intermediate Makefiles 
+excecise 28	- In this program we explore the general structure for basic projects as well as Makefiles
+
+			- basic project structure
+				- The purpose of the structure is to make it easy to build medium sized programs without the use of 
+				  configure tools. Done right, and all you need GNU make and small shell scripts. Below is the list 
+				  of files and directories required and their purpose:
+				
+				- Directories 
+					- bin/
+						The location of the programs that users can run. This is usually empty and the Makefile 
+						will create it if it's not there.
+					- build/
+						Libraries and other build artifacts go here. Also empty and the Makefile will create it if
+						it's not there.
+					- src/
+						Where the source code goes, usually .c and .h files
+					- tests/
+						Automated tests go here.
+
+				- Files
+					- LISCENSE
+						If you release the source of your projects you'll want to include a liscense. If you don't
+						though, the code is copyright by you and nobody has rights to it by default.
+					- README.md
+						Basic instructions for using your project go here. It ends in .md so that it will be 
+						interpreted as markdown.
+					- Makefile
+						The main build for the project.
+						It is designed to build a library on almost any platform using GNU make's special features.
+					- src/dbg.h
+						Zed's debug macros. See exercise20 for details.
+
+
+
+			- Makefile Sections
+
+
+				- The Header (lines 1-12)
+
+					- line 1 ->		The usual CFLAGS with extra options that may be needed to build libraries.
+									-- OPTFLAGS -- a varible used to allow users to augment the build options.
+					- line 2 ->		Options for the user when linking a library.
+									-- OPTLIBS -- a variable used to allow users to augment the linking options.
+					- line 3 ->		Setting a default value for an optional variable that can be changed by the
+									user when runing make. The ?= enables you to set optional varables.
+									-- PREFIX -- a changeable variable used to determine the lib directory 
+													during "The Install".
+					- line 5 ->		Search for all .c files in the "src" directory and include it in the varible.
+									__ wildcard __ a GNU make reserved word used to find file names matching a 
+													shell file name pattern (not a '%' pattern). Used with regexs. 
+									-- SOURCES -- a variable that contains all the build .c sources file names.
+					- line 6 ->		Take the list of all the .c source file names in the variable and create a 
+									new list of .o object files and put it into another variable.
+									__ patsubst __ a GNU make reserved word used to replace words matching 
+													'pattern' with 'replacement' text. Used with regexs. 
+									-- OBJECTS -- a variable that contains all the build .o object file names.
+					- line 8 ->		same as line 5 but for all _tests.c files in the "tests" directory
+									-- TEST_SRC -- a variable that contains all the build _test.c sources file names.
+					- line 9 ->		same as line 6 but remove the .c extension and put the list into a variable
+									-- TESTS -- a variable that contains all the test programs.
+					- line 11 ->	Setting a default value for the library that will be built when make all
+									is run. Change to the library name to what you are trying to build
+									-- TARGET -- a variable that holds the name of the directory you are to build.
+					- line 12 ->	same as line 6 but replace the .a extension with .so and put the list into
+									a variable
+									-- SO_TARGET -- a variable thats hold the list of .so file names
+						
+
+				- The Target Build
+ 
+					- line 15 ->	The first target (all:) that make will run by default when no target is given. 
+									This target gives "$(TARGET) tests" as the targets build, which are the library
+									and the tests targets to build first as prerequisites.
+									__ all: __ a standard GNU make target. It tells make to Make all the top-level
+													targets the make file knows about.
+					- line 17-18->	This is a technique used to change the options for just one target. By placing
+									options on the dev: target line (#17), then give another line (#18) that says
+									the all: target, it will change the options set when a "dev build" is done.									
+									__ dev: __ a Zed's make file target. It is used to enable the developer to 
+													change the options for the all: target.
+					- line 20-21->	Builds the "$(TARGET)" library by first changing the options on line 20 using 
+									the trick described above (lines 17-18) to append -fPIC for the library build.
+									The updated rule on line 21 to make the files for the "$(TARGET)" by carrying
+									out the recipes on the "build" (make the build directory) and "$(OBJECTS)"
+									(compile all the object) prerequisites.
+					- line 22 ->	Runs the ar command which makes the target. The "$@ $(OBJECTS)" means put the
+									target of the Makefile source (build/libYOUR_LIBRARY.a) in the archive first 
+									then put all the OBJECTS afterwards. 
+									__ $@ __ The file name of the target of the rule. If the target is and archive
+													member, then '$@' is the	name of the archive file.
+					- line 23 ->	complete the library by running ranlib in the target. not 'ranlib' and 'ar s'
+									are equivalent. see below
+					- line 25-26->	Build the "$(SO_TARGET)" library by carrying out the recipes for the 
+									"$(TARGET)" and "$(OBJECTS)" prerequisites. On line 26, the C compiler is run
+									with the -shared option to produce a shared object which can then be linked 
+									with other objects to form an executable.
+									__ $(CC)__ The program for compiling C programs; default is 'cc -c'.	
+					- line 28-30->	This makes the build/ or bin/ directories if they do not exist. This is then 
+									referenced from line 21 when it gives the build target a a prerequisite to 
+									ensure the build/ directory exists.
+
+				- The Unit Tests
+					- line 33 ->	Whenever there is a "target" that is not "real", but there is a directory or
+									or file with that name, then you use the .PHONY tag to ignore the file and 
+									avoid conflict and always run the target action to be run. 
+									A phony target is not the name of a file type, but the name of a recipe to 
+									be executed when an explicit request is made.
+									__ .PHONY __ The prerequisites of this special "target" are considered to be
+													phony targets.
+					- line 34 ->	Append the "$(TARGET)" to CFLAGS for the "unit tests build" using the same 
+									trick on line 20. This way, each test program will be linked with the target
+									library. In otherwords, the build/libYOURLIBRARY.a is added to the linking.
+					- line 35 ->	The "tests:" target, whose prerequisites are on all the programs in the 
+									"$(TESTS)" variable, tells make to build each of the tests using the CFLAGS
+									options and what it knows about building programs.
+					- line 36 ->	A recipe to run the all tests using a shell script that reports their output
+					- line 38-39->	A "valgrind:" target that sets that right variable and reruns itself 
+									dynamically. The valgrind logs are put into "/tmp/valgrind-*.log" to see the
+									results. The tests/runtests.sh knows to run the test programs under
+									Valgrind when it sees the VALGRIND variable
+
+				- The Cleaner
+					- line 42 ->	The "clean:" target gives a fresh palate when we need to clean up a project.
+					- line 43-46->	Removes the build directory and its contents, then the tests log files are 
+									removed, followed by the junk most C compilers create, and finally the .dSYM
+									files Apple's XCode creates for its debugging.
+
+				- The Install
+					- line 49 ->	The "install:" target depends on the "all:" target so that everything is 
+									built when "make install" is run
+					- line 50 ->	Create the target lib using the install program if it doesn't exist, and 
+									allow installers change install location using the "$(DESTDIR)" or 
+									"$(PREFIX)" (see line 3 above) variable conventions.
+									-- DESTDIR -- a changeable variable to allow installers to do their builds
+													in secure or odd locations to build packages.
+					- line 51 ->	Use the install program to install the library where it needs to go.
+
+				- The Checker
+					- line 54 ->	Set the BADFUNCS variable to find bad functions like 'strcpy using a big regex
+					- line 55 ->	The "check:" target so that you can run a check whenever you need.
+					- line 56 ->	A way to print a message by doing 'echo' command to print its output
+					- line 57 ->	Run the 'egrep' command the "$(SOURCES)" files to look for any potentially bad
+									patterns. The "|| true" means that even if nothing is found, its ok.
+
+			- Glossary of terms
+
+				- target
+					A target can be either the name of a file that is generated by the program (eg. exe or obj files)
+					or the name of an action to carry out (eg. clean) and is also known as a Phony Target.
+				- prerequisite
+					A file that is used as an input to create the target. A target often depends on several files.
+				- recipe
+					This is an action that make carries out, which can have one or more commands on the same line
+					or many lines.
+				- rule
+					It explains how and when to remake certain files which are the targets of the particular rule.
+					make carries out the recipe on the prerequisites to create or update the target. 
+					A rule can also explain how and when to carry out an action.
+				- ar rcs
+					A GNU program that creates, modifies and extracts from archives
+					-r (replace)
+						Insert file members into archive. New files added, old files with same name replaced 
+					-c (create)
+						Create the archive. Created if it doesn't exist, otherwise do nothing.
+					-s (sort)
+						Write an object-file index into the archive, or update ans existing one, even if no change 
+						is made to the archive. 
+				- ranlib
+					A GNU program that generates an index to the contents of an archive and stores it in the archive. 
+					It is completely equivalent to executing 'ar s'. Apparently, ranlib is not in all UNIX-like 
+					platforms, so 'ar s' is executed instead to allow the archive to be made on many platforms.
+					notes:It generally adds or updates 'object files' in a 'static library'. 'Linkers' can use 
+							static libraries when 'linking' in order to provide 'symbols' that the code needs in
+							order to operate.
+						  On the otherhand, a 'loader' looks for object files in 'dynamic libraries' when running
+							an executable.
+				- install
+					A GNU program to copy files and set attributes.
+					This is used to ensure things have the correct permissions set. Usually the root user has the 
+					ability to do so, thus the typical build process is 'make && sudo make install'
+				- see 
+						gnu.org/software/male/manual/html_node/Rule-Introduction.html#Rule-Introduction
+						man ar
+

@@ -1,0 +1,14 @@
+==8122== Memcheck, a memory error detector
+==8122== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8122== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==8122== Command: ./tests/radixmap_tests.tst
+==8122== Parent PID: 8115
+==8122== 
+==8122== 
+==8122== HEAP SUMMARY:
+==8122==     in use at exit: 0 bytes in 0 blocks
+==8122==   total heap usage: 4 allocs, 4 frees, 4,280 bytes allocated
+==8122== 
+==8122== All heap blocks were freed -- no leaks are possible
+==8122== 
+==8122== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

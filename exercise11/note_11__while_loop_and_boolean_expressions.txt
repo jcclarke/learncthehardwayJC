@@ -1,0 +1,10 @@
+2019-11-22 14:12:38
+
+This folder did the following excercises
+
+While-Loop and Boolean Expressions
+excecise 11	- 
+             - while statement structure and usage
+                 - while( <test>, ) {}
+                 - <test>        is always required to know the exit condition otherwise you get an infinite loop (except when break is used)
+                 - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 4.6 for more info

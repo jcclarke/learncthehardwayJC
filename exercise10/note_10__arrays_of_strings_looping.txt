@@ -1,0 +1,17 @@
+2019-11-22 14:12:38
+
+This folder did the following excercises
+
+Arrays of strings, Looping
+excecise 10	- Using a 2d Array to make and array of strings
+			- First instance of reading commandline arguments from argv[] 
+			- argv[0] is always the programs name
+			- first use of for loops
+			- for structure and usage
+				- for (<initialize>; <test>, <step>) {}
+				- <initialize>	instantiates the variable under test												(the variable can removed and instatiated before the for statement)
+				- <test>		is always required to know the exit condition otherwise you get an infinite loop	(exception are using break or goto statements within the loop)
+				- <step>		progresses the initialized variable towards meeting the test condition				(this can be left out at done as a statement in the for loop)
+				- <initialize> and <step> can include , separators to include multiple conditons
+				- boolean algebra (eg &&, ||, etc) must be used within <test> to check multiple conditions
+				- see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 4.7 for more info

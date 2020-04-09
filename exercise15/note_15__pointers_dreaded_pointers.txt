@@ -1,0 +1,52 @@
+2019-11-25 12:56:13
+
+This folder did the following excercises
+
+Pointers Dreaded Pointers
+excecise 15	- pointers are the memory address/location of stored constants or varibles
+			- pointers  "declaration" is as follows
+			      <data-type> * <name>; 
+			- The pointer can be "initialized" to hold the memory address of a varible in 2 ways:
+					----------------------------------------------
+				- 1)
+					<data-type> * <pointer_name>	= &<variable>;	
+					eg
+						int		*num				= number; 
+					-----------------------------------------------
+				- 2)
+					<data-type> * <name>	; 
+				  <name>							= &<variable>;
+					eg
+						int		*num		; 
+						num							= &number; 
+					-----------------------------------------------
+			- The data in the memory location the pointer points to can then be changed by doing the following:
+				  *<name>							= <variable>;
+			- For arrays, pointers are declared and initialized in the same way by putting a * infront of the pointer variable declaration. 
+				Egs:
+				- int	*<pointer_name>		= <integer_array> ;
+				- char	*<pointer_name>		= <character_array> ;
+				- char	**<pointer_name>	= <string_array> ;
+			- pointers to strings are created by putting a ** since its a 2d array
+			- the syntax to access a an element of an array is the same for a pointer and an array
+
+		--------------------------------------------------------------------------------------------------------------------------------------
+			
+			POINTER LEXICON
+				type *ptr				"a pointer of type named pointer"
+				*ptr					"the value of whatever pointer is pointed at"
+				**(ptr + i)				"the value of (whatever pointer is pointed at plus I)"
+				&thing					"the address of thing"
+				type *ptr = &thing		'a pointer of type named pointer set to address thing"
+				ptr++					"increment where pointer points"
+
+		--------------------------------------------------------------------------------------------------------------------------------------
+
+			- Pracrical Pointer Usage
+				- Ask the OS for a chunk of memory and use a pointer to work with it.
+				- Passing large blocks of memory (like large structs) to functions with a pointer so you don't have to pass the whole thing.
+				- Taking the address of a function so you can use it as a dynamic callback.
+				- Complex scanning of chuncks of memory such as converting bytes off a network socket into data structures or parsing files.
+
+		--------------------------------------------------------------------------------------------------------------------------------------
+            - see gnu.org/software/gnu-c-manual/gnu-c-manual.html section 2.6 for more info
